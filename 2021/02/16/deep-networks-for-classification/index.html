@@ -15,12 +15,18 @@
 <meta property="og:site_name" content="Williams Wang&#39;s blog">
 <meta property="og:description" content="the mathematic perspective of DLHigh-Dimensional Data Analysis by John Wright and Yi Ma  the 16 chapter: deep networks for classification">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/VgGzKjG.jpg">
+<meta property="og:image" content="https://i.imgur.com/pyi7TDy.jpg">
+<meta property="og:image" content="https://i.imgur.com/thd4F50.jpg">
+<meta property="og:image" content="https://i.imgur.com/6vhze3U.jpg">
+<meta property="og:image" content="https://i.imgur.com/stFhRIu.jpg]">
 <meta property="article:published_time" content="2021-02-16T14:49:09.000Z">
-<meta property="article:modified_time" content="2021-02-16T14:59:30.728Z">
+<meta property="article:modified_time" content="2021-02-16T15:02:45.095Z">
 <meta property="article:author" content="Williams Wang">
 <meta property="article:tag" content="DL">
 <meta property="article:tag" content="notes">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/VgGzKjG.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Williams Wang&#39;s blog" type="application/atom+xml">
   
@@ -190,7 +196,7 @@
 <li>from a full or complex matrix to sparse matrix, dimension deduction is a typical tool. finding a way to transform origin matrix to sparse or low rank ones.</li>
 <li>dropout is also a important tool to deduct dimension of matrix.</li>
 <li>$non-linear data \mapsto non-linear sub-manifold \mapsto discriminative output$</li>
-<li>it should noticeable that only in one assumption, which the distribution of each class has relatively low dimensional intrinsic structure, the DL network could solve problem efficiently. in addition, the distribution of each class has a support on a low dimensional submanifold.<br>!(submanifold)[<a target="_blank" rel="noopener" href="https://i.imgur.com/VgGzKjG.jpg]">https://i.imgur.com/VgGzKjG.jpg]</a></li>
+<li>it should noticeable that only in one assumption, which the distribution of each class has relatively low dimensional intrinsic structure, the DL network could solve problem efficiently. in addition, the distribution of each class has a support on a low dimensional submanifold.<br><img src="https://i.imgur.com/VgGzKjG.jpg" alt="submanifold"></li>
 <li><blockquote>
 <p>we want to learn a smooth mapping $z=f(x,\theta)$ that maps each of thesubmanifolds $M_{j} \subset R^n$ to a linear subspace $S_j \subset R^d$.</p>
 </blockquote>
@@ -226,8 +232,8 @@
 </blockquote>
 </li>
 <li><strong>maximal coding rate reduction ($MCR^2$)</strong></li>
-<li>!(reduced rate)[<a target="_blank" rel="noopener" href="https://i.imgur.com/pyi7TDy.jpg]">https://i.imgur.com/pyi7TDy.jpg]</a></li>
-<li>!(theorem16.2)[<a target="_blank" rel="noopener" href="https://i.imgur.com/thd4F50.jpg]">https://i.imgur.com/thd4F50.jpg]</a></li>
+<li><img src="https://i.imgur.com/pyi7TDy.jpg" alt="reducedrate"></li>
+<li><img src="https://i.imgur.com/thd4F50.jpg" alt="theorem162"></li>
 <li><blockquote>
 <p>By applying exact the same training parameters, MCR 2 is signiﬁcantly more robust than CE, especially with higher ratio of corrupted labels.</p>
 </blockquote>
@@ -237,8 +243,8 @@
 <p>As this deep network is derived from maximizing the rate reduced, we call it the ReduNet.</p>
 </blockquote>
 </li>
-<li>!(proposition165)[<a target="_blank" rel="noopener" href="https://i.imgur.com/6vhze3U.jpg]">https://i.imgur.com/6vhze3U.jpg]</a></li>
-<li>!(overviewofmulticlasssginals)[<a target="_blank" rel="noopener" href="https://i.imgur.com/stFhRIu.jpg]">https://i.imgur.com/stFhRIu.jpg]</a></li>
+<li><img src="https://i.imgur.com/6vhze3U.jpg" alt="proposition165"></li>
+<li><img src="https://i.imgur.com/stFhRIu.jpg]" alt="overviewofmulticlasssginals"></li>
 </ol>
 <h2 id="conclusion"><a href="#conclusion" class="headerlink" title="conclusion"></a>conclusion</h2><p>this paper has two stunning aspects for me. first of all, it give me an alternative prospective to interpret DL and NN, and make two points about dimension deduction technology, one is mapping, other is rate distorting. both of them make an attempt to find another more efficient way to solve DL&amp;discrimination problem. secondly, the discussion is not complete, and lacking enough information and evidences about DL&amp;NN principle, especially details about dynamic process of DL NN.</p>
 
