@@ -6,27 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://wangjiatao.github.io">
-  <title>deep networks for classification | Williams Wang&#39;s blog</title>
+  <title>information and DNN | Williams Wang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="the mathematic perspective of DLHigh-Dimensional Data Analysis by John Wright and Yi Ma  the 16 chapter: deep networks for classification">
+  <meta name="description" content="#Opening the black box of Deep Neural Networks via Information [1703.00810] Opening the Black Box of Deep Neural Networks via Information">
 <meta property="og:type" content="article">
-<meta property="og:title" content="deep networks for classification">
-<meta property="og:url" content="http://wangjiatao.github.io/2021/02/16/deep-networks-for-classification/index.html">
+<meta property="og:title" content="information and DNN">
+<meta property="og:url" content="http://wangjiatao.github.io/2021/02/19/information-and-DNN/index.html">
 <meta property="og:site_name" content="Williams Wang&#39;s blog">
-<meta property="og:description" content="the mathematic perspective of DLHigh-Dimensional Data Analysis by John Wright and Yi Ma  the 16 chapter: deep networks for classification">
+<meta property="og:description" content="#Opening the black box of Deep Neural Networks via Information [1703.00810] Opening the Black Box of Deep Neural Networks via Information">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.imgur.com/VgGzKjG.jpg">
-<meta property="og:image" content="https://i.imgur.com/pyi7TDy.jpg">
-<meta property="og:image" content="https://i.imgur.com/thd4F50.jpg">
-<meta property="og:image" content="https://i.imgur.com/6vhze3U.jpg">
-<meta property="og:image" content="https://i.imgur.com/stFhRIu.jpg]">
-<meta property="article:published_time" content="2021-02-16T14:49:09.000Z">
-<meta property="article:modified_time" content="2021-02-16T15:05:01.107Z">
+<meta property="og:image" content="https://i.imgur.com/K7T1HP6.jpg">
+<meta property="og:image" content="https://i.imgur.com/Gw2Vzff.jpg">
+<meta property="og:image" content="https://i.imgur.com/3rkaIIr.jpg">
+<meta property="og:image" content="https://i.imgur.com/q3FKuSs.jpg">
+<meta property="og:image" content="https://i.imgur.com/gdOiicV.jpg">
+<meta property="article:published_time" content="2021-02-19T11:30:03.000Z">
+<meta property="article:modified_time" content="2021-02-19T11:30:03.288Z">
 <meta property="article:author" content="Williams Wang">
 <meta property="article:tag" content="notes">
 <meta property="article:tag" content="DL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/VgGzKjG.jpg">
+<meta name="twitter:image" content="https://i.imgur.com/K7T1HP6.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Williams Wang&#39;s blog" type="application/atom+xml">
   
@@ -150,14 +150,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-deep-networks-for-classification" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-information-and-DNN" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      deep networks for classification
+      information and DNN
     </h1>
   
 
@@ -173,80 +173,143 @@
 	
 	<!--显示阅读次数完毕-->
         
-        <a href="/2021/02/16/deep-networks-for-classification/" class="archive-article-date">
-  	<time datetime="2021-02-16T14:49:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-16</time>
+        <a href="/2021/02/19/information-and-DNN/" class="archive-article-date">
+  	<time datetime="2021-02-19T11:30:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="the-mathematic-perspective-of-DL"><a href="#the-mathematic-perspective-of-DL" class="headerlink" title="the mathematic perspective of DL"></a>the mathematic perspective of DL</h1><p><a target="_blank" rel="noopener" href="https://book-wright-ma.github.io/">High-Dimensional Data Analysis by John Wright and Yi Ma</a></p>
-<hr>
-<p>the 16 chapter: deep networks for classification</p>
+        <p>#Opening the black box of Deep Neural Networks via Information</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1703.00810">[1703.00810] Opening the Black Box of Deep Neural Networks via Information</a></p>
 <a id="more"></a>
 <hr>
-<h2 id="review"><a href="#review" class="headerlink" title="review"></a>review</h2><ol>
-<li>the image classification is most representative case in DL field,because of explainable highly in math principle. </li>
-<li>DL for classification and supervised learning in this chapter.</li>
-<li>the black box of DL could be consider as a mapping problem: $f(.):x \mapsto y$ and the function as: $f: R^n \rightarrow R^k$.</li>
-<li>each layer could be represent as: $x_{l+1}=f^l(z_{l})=\phi(W_{l}z_{l})$. the total mapping of DL could be represent as: $f(x, \theta)=\phi(W_{L-1}\phi(…\phi(W_{1\phi(W_{0}x)})))$, $\theta$ is parameters of parameters. the $\phi$ function are recursively from input to L-1 layer. the training process target is finding optimal parameters with minimize loss function.</li>
-<li>minimizing loss function: cross-entropy loss, $min_{\theta \in \Theta} L_{CE}(\theta, x, y)=-E[&lt;y, log[f(x,\theta)&gt;]$, the optimization process based on SGD.</li>
-<li>isometry is an considerable feature in analytical process.</li>
-<li>from a full or complex matrix to sparse matrix, dimension deduction is a typical tool. finding a way to transform origin matrix to sparse or low rank ones.</li>
-<li>dropout is also a important tool to deduct dimension of matrix.</li>
-<li>$non-linear data \mapsto non-linear sub-manifold \mapsto discriminative output$</li>
-<li>it should noticeable that only in one assumption, which the distribution of each class has relatively low dimensional intrinsic structure, the DL network could solve problem efficiently. in addition, the distribution of each class has a support on a low dimensional submanifold.<br><img src="https://i.imgur.com/VgGzKjG.jpg" alt="submanifold"></li>
+<h2 id="review"><a href="#review" class="headerlink" title="review:"></a>review:</h2><p>this paper explains DNN principle from alternative perspective, information theory, and tries to find a more efficient method to converge loss function. the author also shows sensitive outcome of relative factors, like training set size, amount of layers and nodes of each layer, to finding direct of model parameter choosing. </p>
+<ol>
+<li>the NN model is a information compression process, and it could measure model’s performance by indicators which original from information theory.</li>
 <li><blockquote>
-<p>we want to learn a smooth mapping $z=f(x,\theta)$ that maps each of thesubmanifolds $M_{j} \subset R^n$ to a linear subspace $S_j \subset R^d$.</p>
+<p>the authors noted that layered neural networks form a Markov chain of successive representations of the input layer and suggested studying them in the Information Plane - the plane of the Mutual Information values of any other variable with the input variable X and desired output variable Y.</p>
 </blockquote>
 </li>
-<li><blockquote>
-<p>The more ideal case when the data X lie on linear subspaces has been systematically studied as generalized principal component analysis (GPCA)</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>rate distortion: Given a random variable z and a prescribed precision ε &gt; 0, the rate distortion R(z, ε) is the minimal number of binary bits needed to encode z such that the expected decoding error 16 is less than ε.</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>$R(X,\epsilon)=\frac{1}{2}log det(I+\frac{d}{m\epsilon^2}ZZ^*)$,log det(·) function is a smooth but nonconvex surrogate for promoting low-dimensionality of the representation Z.</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>As it tightly characterizes the rate distortion of Gaussian or subspace-like distributions, finding the clustering Π that minimizes: $min_{\Pi} R^c(Z,\epsilon|\Pi)$.</p>
-</blockquote>
-</li>
-<li>information theory provide an efficient tool to compress matrix or finding the low dimensional space, with rate distorting indicator.</li>
-<li> $\Delta R(Z,\Pi, \epsilon)= R(Z,\epsilon)-R^c(X,\epsilon|\Pi)$, Therefore, a good representation Z of X is one such that, given a partition Π of Z, achieves a large diﬀerence between the coding rate for the whole and the average rate for all the subsets:</li>
-<li><blockquote>
-<p>∆R is monotonic in the scale of the features Z.</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>Once the representations are comparable, our goal becomes to learn a set of features Z(θ) = f(X, θ) and their partition Π (if not given in advance) such that they maximize the reduction between the coding rate of all features and that of the sum of features w.r.t. their classes:$ max_{\theta, \Pi}=\Delta R(Z(\Theta,\Pi,\epsilon)).</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>The maximal coding rate reduction can be viewed as a generalization to Information Gain (IG), which aims to maximize the reduction of entropy of a random variable, say z, with . respect to an observed attribute, say π: max π IG(z, π) = H(z) − H(z | π), i.e., the mutual information between z and π</p>
-</blockquote>
-</li>
-<li><strong>maximal coding rate reduction ($MCR^2$)</strong></li>
-<li><img src="https://i.imgur.com/pyi7TDy.jpg" alt="reducedrate"></li>
-<li><img src="https://i.imgur.com/thd4F50.jpg" alt="theorem162"></li>
-<li><blockquote>
-<p>By applying exact the same training parameters, MCR 2 is signiﬁcantly more robust than CE, especially with higher ratio of corrupted labels.</p>
-</blockquote>
-</li>
-<li>chapter 16.3 is too complex to representation,you can read it by yourself from above download link.</li>
-<li><blockquote>
-<p>As this deep network is derived from maximizing the rate reduced, we call it the ReduNet.</p>
-</blockquote>
-</li>
-<li><img src="https://i.imgur.com/6vhze3U.jpg" alt="proposition165"></li>
-<li><img src="https://i.imgur.com/stFhRIu.jpg]" alt="overviewofmulticlasssginals"></li>
+<li>a new concept: information bottleneck: <ol>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BF%A1%E6%81%AF%E7%93%B6%E9%A2%88">信息瓶颈 - 维基百科，自由的百科全书</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Information_bottleneck_method">Information bottleneck method - Wikipedia</a></li>
 </ol>
-<h2 id="conclusion"><a href="#conclusion" class="headerlink" title="conclusion"></a>conclusion</h2><p>this paper has two stunning aspects for me. first of all, it gives me an alternative prospective to interpret DL and NN, and make two points about dimension deduction technology, one is mapping, other is rate distorting. both of them make an attempt to find another more efficient way to solve DL&amp;discrimination problem. secondly, the discussion is not complete, and lacking enough information and evidences about DL&amp;NN principle, especially details about dynamic process of DL NN.</p>
+</li>
+<li><img src="https://i.imgur.com/K7T1HP6.jpg" alt="IB"></li>
+<li><img src="https://i.imgur.com/Gw2Vzff.jpg" alt="NN"></li>
+<li>the IB(information bottleneck) measure precise rate of a DNN model by MI(mutual information) indicator. it try to minimize difference of MI between input set and output set, through DNN model’s layers and nodes, $T_{i}%. </li>
+<li><blockquote>
+<p>In the ERM phase the gradient norms are much larger than their stochastic ﬂuctuations, resulting in a rapid increase in the mutual information on the label variable Y . In the compression phase, the ﬂuctuations of the gradients are much larger than their means, and the weights change essentially as Weiner processes, or random diffusion, with a very small inﬂuence of the error gradients.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>Our analysis gives the following new results: (i) the Stochastic Gradient Decent (SGD) optimization has two main phases. In the ﬁrst and shorter phase the layers increase the information on the labels (ﬁtting), while in the second and much longer phase the layer reduce the information on the input (compression phase). </p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>(iii) The main advantage of the hidden layers is computational, as they dramatically reduce the stochastic relaxation times. (</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>Our ﬁrst important insight is to treat the whole layer, T, as a single random variable, characterized by its encoder, P(T | X), and decoder, P(Y | T) distributions.</p>
+</blockquote>
+</li>
+<li>$I(X;Y)=D_{KL}[p(x,y)||p(x)p(y)]=\sum_{x \in X, y \in Y}p(x,y)log(\frac{p(x,y)}{p(x)p(y)})=H(X)-H(X|Y)$,H(X) and H(X | Y ) are the entropy and conditional entropy of X and Y</li>
+<li>two important properties: <ol>
+<li>$I(X;Y)=I(\phi(X);\phi(Y))$</li>
+<li>$given\ X\rightarrow Y \rightarrow Z,\ then\  I(X;Y) \geq I(X;Z)$</li>
+</ol>
+</li>
+<li><blockquote>
+<p>Any representation variable, T, deﬁned as a (possibly stochastic) map of the input X, is characterized by its joint distributions with X and Y , or by its encoder and decoder distributions, P(T | X) and P(Y | T), respectively.Given P(X; Y ), T is uniquely mapped to a point in the information plane with coordinates (I(X; T), I(T; Y )). When applied to the Markov chain of a K-layers DNN, with $T_i$ denoting the $i^th$ th hidden layer as a single multivariate variable, the layers are mapped to K monotonic connected points in the plane - henceforth a unique information path which satisfies the following DPI chains:<br><img src="https://i.imgur.com/3rkaIIr.jpg" alt="DPI"></p>
+</blockquote>
+</li>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%85%85%E5%88%86%E7%BB%9F%E8%AE%A1%E9%87%8F">充分统计量 - 维基百科，自由的百科全书</a></li>
+<li>$S(X)$: sufficient statistic</li>
+<li><blockquote>
+<p>This leads to the Information Bottleneck (IB) tradeoff [Tishby et al. (1999)], which provides a computational framework for ﬁnding approximate minimal sufﬁcient statistics, or the optimal tradeoff between compression of X and prediction of Y .</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>If we deﬁne t ∈ T as the compressed representations of x ∈ X, the representation of x is now defined by the mapping p (t | x).</p>
+</blockquote>
+</li>
+<li>$given\ Y\rightarrow X\rightarrow T,\ min_{p(t|x),p(y|t),p(t)}{I(X;T)-\beta I(T;Y)}$. </li>
+<li><blockquote>
+<p>The Lagrange multiplier β determines the level of relevant information captured by the representation T, I(T; Y ), which is directly related to the error in the label prediction from this representation.</p>
+</blockquote>
+</li>
+<li><img src="https://i.imgur.com/q3FKuSs.jpg" alt="p">, $Z(x;\beta)$ is the normalization function.</li>
+<li><blockquote>
+<p>For deterministic functions, y = f(x), the mutual information is insensitive to the complexity of the function f(x) or the class of functions it comes from.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>If we have no information on the structure or topology of X, then even for a binary Y there is no way to distinguish low complexity classes (e.g. functions with a low VC dimension) from highly complex classes (e.g. essentially random function with high mixing complexity, see: Moshkovich and Tishby (2017)), by the mutual information alone.<strong>There is, however, a fundamental cure to this problem. We can turn the function into a stochastic rule by adding (small) noise to the patterns.</strong></p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>In this case we can interpret the output of the sigmoid as the probability of the label y = 1 and the function is a simple linear hyper-plane in the input space X with noise deterp(x) mined by the width of the sigmoid function.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p><strong>The sufﬁcient statistics in this case is the dot product w · x with precision (in bits) determined by the dimensionality of w and the margin, or by the level of noise in the sigmoid function.</strong></p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>The learning complexity is related to the number of relevant bits required from the input patterns X for a good enough prediction of the output label Y , or the minimal $I(X; \hat{X})$ under a constraint on I($\hat{X}$; Y ) given by the IB.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>During the fast - ERM - phase, which takes a few hundred epochs, the layers increase the information on the labels (increase $I_Y$ ) while preserving the DPI order (lower layers have higher information). In the second and much longer training phase the layers’ information on the input, $I_X$ , decreases and the layers lose irrelevant information until convergence (the yellow points). We call this phase the representation compression phase.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>the compression phase signiﬁcantly reduced the layers’ label information in the small sample case, but with large samples the label information mostly increased.This looks very much like overﬁtting the small sample noise, which can be avoided with early stopping methods</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>The ﬁrst is a drift phase, where the gradient means are much larger than their standard deviations, indicating small gradient stochasticity (high SNR). In the second phase, the gradient means are very small compared to their batch to batch ﬂuctuations, and the gradients behave like Gaussian noise with very small means, for each layer (low SNR). We call this the diffusion phase. S</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>The drift phase clearly increases I Yfor every layer, since it quickly reduces the empirical error. On the other hand, the diffusion phase mostly adds random noise to the weights, and they evolve like Wiener processes, under the training error or label information constraint.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>But as the gradient noises seem to vary and eventually decrease when the layers converge, suggesting that the convergence points are related to the critical slowing down of stochastic relaxation near phase transitions on the Information Bottleneck curve. This intriguing hypothesis is further examined elsewhere.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>Moreover, the correlations between the in-weights of different neurons in the same layer, which converge to essentially the same point in the plane, was very small. This indicates that there is a huge number of different networks with essentially optimal performance, and attempts to interpret single weights or even single neurons in such networks can be meaningless.</p>
+</blockquote>
+</li>
+<li>There are several important outcomes of this experiment:<ol>
+<li>Adding hidden layers dramatically reduces the number of training epochs for good generalization.</li>
+<li>The compression phase of each layer is shorter when it starts from a previous compressed layer.</li>
+<li>The compression is faster for the deeper (narrower and closer to the output) layers.</li>
+<li>Even wide hidden layers eventually compress in the diffusion phase. Adding extra width does not help.</li>
+</ol>
+</li>
+<li><blockquote>
+<p>Others have suggested that such layers can still improve the Signal-to-noise ratio (SNR) of the patterns in some learning models [Kadmon and Sompolinsky (2016)]. In our simulations all the hidden layers eventually compress the inputs, given enough SGD epochs.</p>
+</blockquote>
+</li>
+<li><img src="https://i.imgur.com/gdOiicV.jpg" alt="beta"></li>
+<li><blockquote>
+<p>As expected, with increasing training size the layers’ true label information (generalization) I Y is pushed up and gets closer to the theoretical IB bound for the rule distribution. The effect of the training size on the layers is different for I Y and I X . In the lower layers, the training size hardly changes the information at all, since even random weights keep most of the mutual information on both X and Y. However, for the deeper layers the network learns to preserve more of the information on Y and better compress the irrelevant information in X. With larger training samples more details on X become relevant for Y and we there is a shift to higher I X in the middle layers.</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h2 id="discussion"><a href="#discussion" class="headerlink" title="discussion"></a>discussion</h2><ol>
+<li>the NN model, from input to output could be looked like a compression perception process, but how could to measure rule of back propagation in a NN model?</li>
+<li>in compression process, the model would drop out some “information or noise”, that results in output of the model become more and more sensitive for changes of weighted of model’s nodes. how to explain this phenomenon from geometry perspective？</li>
+<li>the linear feature of NN model could be interpreted with manifold of cost function, how to explain process of back propagation with a similar approach? we have known how to dimension deduction, but how to dimension growing up from low dimension space to higher while keeping a satisfactory precise rate.</li>
+<li>from geometry perspective, understanding and training NN model may become more efficient and intuitive.</li>
+</ol>
 
       
 
@@ -341,7 +404,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-    <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://wangjiatao.github.io/2021/02/16/deep-networks-for-classification/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://wangjiatao.github.io/2021/02/19/information-and-DNN/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -355,18 +418,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/02/19/information-and-DNN/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          information and DNN
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/02/15/%E7%AE%A1%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">管理</div>
+    <a href="/2021/02/16/deep-networks-for-classification/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">deep networks for classification</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -405,7 +459,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://wangjiatao.github.io/2021/02/16/deep-networks-for-classification/",
+  id: "http://wangjiatao.github.io/2021/02/19/information-and-DNN/",
   owner: 'wangjiatao',
   repo: 'wangjiatao.github.io',
   oauth: {

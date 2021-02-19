@@ -6,27 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://wangjiatao.github.io">
-  <title>deep networks for classification | Williams Wang&#39;s blog</title>
+  <title>Archives | Williams Wang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="the mathematic perspective of DLHigh-Dimensional Data Analysis by John Wright and Yi Ma  the 16 chapter: deep networks for classification">
-<meta property="og:type" content="article">
-<meta property="og:title" content="deep networks for classification">
-<meta property="og:url" content="http://wangjiatao.github.io/2021/02/16/deep-networks-for-classification/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Williams Wang&#39;s blog">
+<meta property="og:url" content="http://wangjiatao.github.io/archives/page/2/index.html">
 <meta property="og:site_name" content="Williams Wang&#39;s blog">
-<meta property="og:description" content="the mathematic perspective of DLHigh-Dimensional Data Analysis by John Wright and Yi Ma  the 16 chapter: deep networks for classification">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.imgur.com/VgGzKjG.jpg">
-<meta property="og:image" content="https://i.imgur.com/pyi7TDy.jpg">
-<meta property="og:image" content="https://i.imgur.com/thd4F50.jpg">
-<meta property="og:image" content="https://i.imgur.com/6vhze3U.jpg">
-<meta property="og:image" content="https://i.imgur.com/stFhRIu.jpg]">
-<meta property="article:published_time" content="2021-02-16T14:49:09.000Z">
-<meta property="article:modified_time" content="2021-02-16T15:05:01.107Z">
 <meta property="article:author" content="Williams Wang">
-<meta property="article:tag" content="notes">
-<meta property="article:tag" content="DL">
+<meta property="article:tag" content="‘CFA, FRM, CPA, ML, DL, Python’">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/VgGzKjG.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Williams Wang&#39;s blog" type="application/atom+xml">
   
@@ -150,271 +139,52 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-deep-networks-for-classification" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      deep networks for classification
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2021" class="archive-year">2021</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/01/29/hello-world/" class="archive-article-date">
+  	<time datetime="2021-01-29T03:22:33.446Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-29</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/01/29/hello-world/">Hello World</a>
     </h1>
   
 
-	<!--显示阅读次数-->
-	
-  	<br/>
-  	<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
- 	 <span class="icon-sort"></span>
- 	 <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-    	阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-  	</span>
-  	</a>
-	
-	<!--显示阅读次数完毕-->
-        
-        <a href="/2021/02/16/deep-networks-for-classification/" class="archive-article-date">
-  	<time datetime="2021-02-16T14:49:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="the-mathematic-perspective-of-DL"><a href="#the-mathematic-perspective-of-DL" class="headerlink" title="the mathematic perspective of DL"></a>the mathematic perspective of DL</h1><p><a target="_blank" rel="noopener" href="https://book-wright-ma.github.io/">High-Dimensional Data Analysis by John Wright and Yi Ma</a></p>
-<hr>
-<p>the 16 chapter: deep networks for classification</p>
-<a id="more"></a>
-<hr>
-<h2 id="review"><a href="#review" class="headerlink" title="review"></a>review</h2><ol>
-<li>the image classification is most representative case in DL field,because of explainable highly in math principle. </li>
-<li>DL for classification and supervised learning in this chapter.</li>
-<li>the black box of DL could be consider as a mapping problem: $f(.):x \mapsto y$ and the function as: $f: R^n \rightarrow R^k$.</li>
-<li>each layer could be represent as: $x_{l+1}=f^l(z_{l})=\phi(W_{l}z_{l})$. the total mapping of DL could be represent as: $f(x, \theta)=\phi(W_{L-1}\phi(…\phi(W_{1\phi(W_{0}x)})))$, $\theta$ is parameters of parameters. the $\phi$ function are recursively from input to L-1 layer. the training process target is finding optimal parameters with minimize loss function.</li>
-<li>minimizing loss function: cross-entropy loss, $min_{\theta \in \Theta} L_{CE}(\theta, x, y)=-E[&lt;y, log[f(x,\theta)&gt;]$, the optimization process based on SGD.</li>
-<li>isometry is an considerable feature in analytical process.</li>
-<li>from a full or complex matrix to sparse matrix, dimension deduction is a typical tool. finding a way to transform origin matrix to sparse or low rank ones.</li>
-<li>dropout is also a important tool to deduct dimension of matrix.</li>
-<li>$non-linear data \mapsto non-linear sub-manifold \mapsto discriminative output$</li>
-<li>it should noticeable that only in one assumption, which the distribution of each class has relatively low dimensional intrinsic structure, the DL network could solve problem efficiently. in addition, the distribution of each class has a support on a low dimensional submanifold.<br><img src="https://i.imgur.com/VgGzKjG.jpg" alt="submanifold"></li>
-<li><blockquote>
-<p>we want to learn a smooth mapping $z=f(x,\theta)$ that maps each of thesubmanifolds $M_{j} \subset R^n$ to a linear subspace $S_j \subset R^d$.</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>The more ideal case when the data X lie on linear subspaces has been systematically studied as generalized principal component analysis (GPCA)</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>rate distortion: Given a random variable z and a prescribed precision ε &gt; 0, the rate distortion R(z, ε) is the minimal number of binary bits needed to encode z such that the expected decoding error 16 is less than ε.</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>$R(X,\epsilon)=\frac{1}{2}log det(I+\frac{d}{m\epsilon^2}ZZ^*)$,log det(·) function is a smooth but nonconvex surrogate for promoting low-dimensionality of the representation Z.</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>As it tightly characterizes the rate distortion of Gaussian or subspace-like distributions, finding the clustering Π that minimizes: $min_{\Pi} R^c(Z,\epsilon|\Pi)$.</p>
-</blockquote>
-</li>
-<li>information theory provide an efficient tool to compress matrix or finding the low dimensional space, with rate distorting indicator.</li>
-<li> $\Delta R(Z,\Pi, \epsilon)= R(Z,\epsilon)-R^c(X,\epsilon|\Pi)$, Therefore, a good representation Z of X is one such that, given a partition Π of Z, achieves a large diﬀerence between the coding rate for the whole and the average rate for all the subsets:</li>
-<li><blockquote>
-<p>∆R is monotonic in the scale of the features Z.</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>Once the representations are comparable, our goal becomes to learn a set of features Z(θ) = f(X, θ) and their partition Π (if not given in advance) such that they maximize the reduction between the coding rate of all features and that of the sum of features w.r.t. their classes:$ max_{\theta, \Pi}=\Delta R(Z(\Theta,\Pi,\epsilon)).</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>The maximal coding rate reduction can be viewed as a generalization to Information Gain (IG), which aims to maximize the reduction of entropy of a random variable, say z, with . respect to an observed attribute, say π: max π IG(z, π) = H(z) − H(z | π), i.e., the mutual information between z and π</p>
-</blockquote>
-</li>
-<li><strong>maximal coding rate reduction ($MCR^2$)</strong></li>
-<li><img src="https://i.imgur.com/pyi7TDy.jpg" alt="reducedrate"></li>
-<li><img src="https://i.imgur.com/thd4F50.jpg" alt="theorem162"></li>
-<li><blockquote>
-<p>By applying exact the same training parameters, MCR 2 is signiﬁcantly more robust than CE, especially with higher ratio of corrupted labels.</p>
-</blockquote>
-</li>
-<li>chapter 16.3 is too complex to representation,you can read it by yourself from above download link.</li>
-<li><blockquote>
-<p>As this deep network is derived from maximizing the rate reduced, we call it the ReduNet.</p>
-</blockquote>
-</li>
-<li><img src="https://i.imgur.com/6vhze3U.jpg" alt="proposition165"></li>
-<li><img src="https://i.imgur.com/stFhRIu.jpg]" alt="overviewofmulticlasssginals"></li>
-</ol>
-<h2 id="conclusion"><a href="#conclusion" class="headerlink" title="conclusion"></a>conclusion</h2><p>this paper has two stunning aspects for me. first of all, it gives me an alternative prospective to interpret DL and NN, and make two points about dimension deduction technology, one is mapping, other is rate distorting. both of them make an attempt to find another more efficient way to solve DL&amp;discrimination problem. secondly, the discussion is not complete, and lacking enough information and evidences about DL&amp;NN principle, especially details about dynamic process of DL NN.</p>
+        <div class="article-info info-on-right">
+          
+          
 
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">notes</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sos" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i> 
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-    <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://wangjiatao.github.io/2021/02/16/deep-networks-for-classification/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2021/02/19/information-and-DNN/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          information and DNN
-        
-      </div>
-    </a>
   
   
-    <a href="/2021/02/15/%E7%AE%A1%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">管理</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
-  <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
-<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-  id: "http://wangjiatao.github.io/2021/02/16/deep-networks-for-classification/",
-  owner: 'wangjiatao',
-  repo: 'wangjiatao.github.io',
-  oauth: {
-    client_id: '30eb55b943add2d2eaae',
-    client_secret: '42156f52dd37ca7af1c9f78f2646c5b8527c490b',
-  },
-})
-gitment.render('gitment-ctn')
-</script>
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -438,8 +208,8 @@ gitment.render('gitment-ctn')
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
