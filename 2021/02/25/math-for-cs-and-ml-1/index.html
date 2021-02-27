@@ -42,7 +42,7 @@
 <meta property="og:image" content="https://i.imgur.com/d0UckGq.jpg">
 <meta property="og:image" content="https://i.imgur.com/IGHXdK2.jpg">
 <meta property="article:published_time" content="2021-02-25T13:57:34.000Z">
-<meta property="article:modified_time" content="2021-02-25T14:12:31.382Z">
+<meta property="article:modified_time" content="2021-02-25T14:16:55.145Z">
 <meta property="article:author" content="Williams Wang">
 <meta property="article:tag" content="ML">
 <meta property="article:tag" content="math">
@@ -285,7 +285,7 @@
 <li>$det(u,v,w)\ne0$, then (u,v,w) linear independent.</li>
 <li>inner product: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Inner_product_space">Inner product space - Wikipedia</a>, $\vec{x}*\vec{y}=\sum{x_i * y_j}$</li>
 <li>$\parallel x\parallel_{2}=(\sum{s^2_{i}})^{\frac{1}{2}}$</li>
-<li>$\parallel \cdot y\parallel \leq \parallel x\parallel \parallel y \parallel$</li>
+<li>$\parallel x \cdot y\parallel \leq \parallel x\parallel \parallel y \parallel$</li>
 <li>for vector, $\vec{A} \vec{B} \ne \vec{B} \vec{A}$</li>
 <li><blockquote>
 <p>If a square matrix A has an inverse, then we say that it is invertible or nonsingular, otherwise we say that it is singular.</p>
@@ -299,13 +299,13 @@
 <li>every mxn matrix A can be written as $\vec{A} = \vec{V} \vec{ \Sigma} \vec{U}^T $,  the V is an mxm orthogonal matrix, U is an nxn orthogonal matrix, and $\Sigma$ is an mxn matrix whose only nonzero are nonnegative diagonal entries. $\sigma_{1} \geq \sigma_{2} …$, where p=min(m,n), called the singular values of A. this process is called a singular decomposition of A.</li>
 <li><img src="https://i.imgur.com/Eef4WgN.jpg" width=50% heigh=50%></li>
 <li>given a function group with m function of (x,y), each function could be looked as a hyper-plane. m function corresponding to one hyper-plane.</li>
-<li>the indicator $\parallel\vec{A} - vec{A^’}\parallel^2$ could be used to measure how closed of two matrix, and the latter matrix $A^’$ is approximate of A. through this process, we could get a low dimension matrix and save computing cost.</li>
+<li>the indicator $\parallel \vec{A} - vec{A^{‘}} \parallel ^{2}$ could be used to measure how closed of two matrix, and the latter matrix $A^{‘}$ is approximate of A. through this process, we could get a low dimension matrix and save computing cost.</li>
 <li><blockquote>
 <p><strong>However, keep in mind that vector spaces are not just algebraic objects; they are also geometric objects.</strong></p>
 </blockquote>
 </li>
 <li><img src="https://i.imgur.com/Fq6wCn0.jpg" alt="vector space"></li>
-<li>the ring C(a,b) of continuous functions $f:(a,b) \rightarrow \mathbb{R} $ is a vector space over $\mathbb{R}$, with the scalar multiplication $\lambda f$ of a function $f:(a,b) \rightarrow \mathbb{R} $ by a scalar $\lambda \in \mathbb{R} $ given by: $(\lambda f)(x)=\lambda f(x), for all x \in (a,b).</li>
+<li>the ring C(a,b) of continuous functions $f:(a,b) \rightarrow \mathbb{R} $ is a vector space over $\mathbb{R}$, with the scalar multiplication $\lambda f$ of a function $f:(a,b) \rightarrow \mathbb{R} $ by a scalar $\lambda \in \mathbb{R} $ given by: $(\lambda f)(x)=\lambda f(x), for all x \in (a,b)$.</li>
 <li><blockquote>
 <p>if + is associative and commutative, it seems intuitively clear that a sum of the form ∑ i ∈ I a i does not depend on the order of the operations used to compute it.</p>
 </blockquote>
@@ -342,7 +342,7 @@ this definition reveals a important property of vector space. the space property
 <li>用base 构成的子空间/子vector，构成的标量具有unique： 1. 该子space和子vector是base通过线性方法构成的。2. 应用该结论需要2个前提：找到一个space的base，找到对应的scalar。那么线性方程，如果能保证x是base，那么线性方程组就在这样的一个原理。</li>
 <li><img src="https://i.imgur.com/qdhrGhe.jpg" alt="unique-linearly"></li>
 <li><img src="https://i.imgur.com/rW3o8lE.jpg" alt="matrix"></li>
-<li>$index \rightarrow index\ space \rightarrow matrix$ – how to define a matrix!</li>
+<li> “$index \rightarrow index\ space \rightarrow matrix$ “– how to define a matrix!</li>
 <li><blockquote>
 <p>An invertible matrix is also called a nonsingular matrix, and a matrix that is not invertible is called a singular matrix.</p>
 </blockquote>
@@ -655,15 +655,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">notes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">DL</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">geometry</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">notes</a>
               </li>
              
               <li class="article-tag-list-item">
