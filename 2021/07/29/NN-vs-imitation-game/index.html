@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://wangjiatao.github.io">
-  <title>Archives: 2021/7 | Williams Wang&#39;s blog</title>
+  <title>NN vs imitation game | Williams Wang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Williams Wang&#39;s blog">
-<meta property="og:url" content="http://wangjiatao.github.io/archives/2021/07/index.html">
+  <meta name="description" content="NN, imitation gamemovie, turing machine, mathematicsthere are two articles about a text-style-transferring model training by facebook.给一个词就能模仿你的笔迹，Facebook这个AI强大到不敢开源代码 - 知乎TextStyleBrush: Transfer of">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NN vs imitation game">
+<meta property="og:url" content="http://wangjiatao.github.io/2021/07/29/NN-vs-imitation-game/index.html">
 <meta property="og:site_name" content="Williams Wang&#39;s blog">
+<meta property="og:description" content="NN, imitation gamemovie, turing machine, mathematicsthere are two articles about a text-style-transferring model training by facebook.给一个词就能模仿你的笔迹，Facebook这个AI强大到不敢开源代码 - 知乎TextStyleBrush: Transfer of">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-07-29T14:43:29.000Z">
+<meta property="article:modified_time" content="2021-07-29T14:43:30.016Z">
 <meta property="article:author" content="Williams Wang">
-<meta property="article:tag" content="‘CFA, FRM, CPA, ML, DL, Python’">
+<meta property="article:tag" content="ML">
+<meta property="article:tag" content="math">
+<meta property="article:tag" content="DL">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Williams Wang&#39;s blog" type="application/atom+xml">
@@ -139,36 +145,70 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-NN-vs-imitation-game" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/07/29/NN-vs-imitation-game/" class="archive-article-date">
-  	<time datetime="2021-07-29T14:43:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-29</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/07/29/NN-vs-imitation-game/">NN vs imitation game</a>
+    <h1 class="article-title" itemprop="name">
+      NN vs imitation game
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+	<!--显示阅读次数-->
+	
+  	<br/>
+  	<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+ 	 <span class="icon-sort"></span>
+ 	 <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+    	阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  	</span>
+  	</a>
+	
+	<!--显示阅读次数完毕-->
+        
+        <a href="/2021/07/29/NN-vs-imitation-game/" class="archive-article-date">
+  	<time datetime="2021-07-29T14:43:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="NN-imitation-game"><a href="#NN-imitation-game" class="headerlink" title="NN, imitation game"></a>NN, imitation game</h1><p>movie, turing machine, mathematics<br>there are two articles about a text-style-transferring model training by facebook.<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/393605337">给一个词就能模仿你的笔迹，Facebook这个AI强大到不敢开源代码 - 知乎</a><br><a target="_blank" rel="noopener" href="https://scontent-hkt1-1.xx.fbcdn.net/v/t39.8562-6/10000000_944085403038430_3779849959048683283_n.pdf?_nc_cat=108&ccb=1-3&_nc_sid=ae5e01&_nc_ohc=XuBKgbQn-BUAX-xkxlb&_nc_ht=scontent-hkt1-1.xx&oh=b276ae2c6222f2439f205a8baaeb8538&oe=6106E681">TextStyleBrush: Transfer of text aesthetics from a single example</a></p>
+<a id="more"></a>
+<h2 id="section-1"><a href="#section-1" class="headerlink" title="section 1"></a>section 1</h2><p>i will abstract some interesting points of the above papers, especially the latter, in this section.<br>the style transferring learning load one style to another content by GAN paradigm, which is known by most of us. the first magic point is they design the architecture of the model with two modules, the content and the style. because the model’s outcomes need to meet two requirements, outputting special text with a given style or imitating the style, facebook design a NN model with two modules achieving those assignments.<br>moreover, the facebook also makes a novel loss function to train the model.<br>$L=L_D+\lambda_4L_R+L_type+\lambda_5L_rec+\lambda_6L_cyc$<br>the LD denotes the discriminator-based adversarial loss. the L_type refers to losses computed by the typeface classification network. the latter two segments are the reconstruction and cyclic reconstruction losses, respectively.<br>they assess style and contents difference by the typeface classifier, an OCR recognition model and a discriminator. the total error is measured by MSE with l2, SSIM and PSNR.<br>although it is inevitable some failures in its outcomes, the model improves the style-transferring learning to another field, the texture.we are too  self-congratulation if inveigled by the model’s outcomes. it is true the facebook making a surprise that they  expand the style-transferring technology, but inventing. </p>
+<h2 id="section-2"><a href="#section-2" class="headerlink" title="section 2"></a>section 2</h2><p>there are some commitments of myself in this section.<br>first of all, anyone wanting to learn ML and NN should know which of the textures, voices and pictures is data. for example,the picture is a high dimension matrix, and the voice and texture are the high dimension vectors. the training process of a NN model just optimal their parameters, the weighted of each layer, to imitate the outcomes assigned in advance in a supervised learning. anyone learned linear algebra and geometry can understand that we can mapping a matrix to a point in a high dimension space. the spatial difference of those point depend on their features. we may never know the real key points or features of an object, but we can use a super-power model, such as NN, to imitate it. we describe an object by approaching it with a function, even if we cannot predict how long time to take. the turing machine is an analogous machine. we can prove its existence, and have found more and more successful examples as the improvement of technology and computing power.   </p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -188,61 +228,122 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sos" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i> 
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+    <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://wangjiatao.github.io/2021/07/29/NN-vs-imitation-game/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/07/28/section-rotation-and-wave-correlation/" class="archive-article-date">
-  	<time datetime="2021-07-28T05:09:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-28</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/07/28/section-rotation-and-wave-correlation/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">section rotation and wave correlation</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/07/28/section-rotation-and-wave-correlation/">section rotation and wave correlation</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">finance</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">math</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://wangjiatao.github.io/2021/07/29/NN-vs-imitation-game/",
+  owner: 'wangjiatao',
+  repo: 'wangjiatao.github.io',
+  oauth: {
+    client_id: '30eb55b943add2d2eaae',
+    client_secret: '42156f52dd37ca7af1c9f78f2646c5b8527c490b',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -265,8 +366,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
