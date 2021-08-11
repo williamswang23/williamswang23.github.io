@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://wangjiatao.github.io">
-  <title>Archives: 2021 | Williams Wang&#39;s blog</title>
+  <title>market microstructure | Williams Wang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Williams Wang&#39;s blog">
-<meta property="og:url" content="http://wangjiatao.github.io/archives/2021/index.html">
+  <meta name="description" content="market microstructure, algorithmic trading, and strategiesThe fundamental logistic of market microstructure is the agents.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="market microstructure">
+<meta property="og:url" content="http://wangjiatao.github.io/2021/08/11/market-microstructure/index.html">
 <meta property="og:site_name" content="Williams Wang&#39;s blog">
+<meta property="og:description" content="market microstructure, algorithmic trading, and strategiesThe fundamental logistic of market microstructure is the agents.">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-08-11T13:11:27.000Z">
+<meta property="article:modified_time" content="2021-08-11T13:11:27.505Z">
 <meta property="article:author" content="Williams Wang">
-<meta property="article:tag" content="‘CFA, FRM, CPA, ML, DL, Python’">
+<meta property="article:tag" content="finance">
+<meta property="article:tag" content="RL">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Williams Wang&#39;s blog" type="application/atom+xml">
@@ -139,36 +144,112 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-market-microstructure" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/11/market-microstructure/" class="archive-article-date">
-  	<time datetime="2021-08-11T13:11:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-11</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/11/market-microstructure/">market microstructure</a>
+    <h1 class="article-title" itemprop="name">
+      market microstructure
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+	<!--显示阅读次数-->
+	
+  	<br/>
+  	<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+ 	 <span class="icon-sort"></span>
+ 	 <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+    	阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  	</span>
+  	</a>
+	
+	<!--显示阅读次数完毕-->
+        
+        <a href="/2021/08/11/market-microstructure/" class="archive-article-date">
+  	<time datetime="2021-08-11T13:11:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="market-microstructure-algorithmic-trading-and-strategies"><a href="#market-microstructure-algorithmic-trading-and-strategies" class="headerlink" title="market microstructure, algorithmic trading, and strategies"></a>market microstructure, algorithmic trading, and strategies</h1><p>The fundamental logistic of market microstructure is the agents. </p>
+<a id="more"></a>
+
+<h2 id="SECTOR-1"><a href="#SECTOR-1" class="headerlink" title="SECTOR 1"></a>SECTOR 1</h2><p>A completed knowledge framework should include those points below:</p>
+<ol>
+<li>Trading fundamentals</li>
+<li>Time series data analysis</li>
+<li>Advanced mathematical technology</li>
+<li>Market data analysis:<ol>
+<li>Statistical trading strategies</li>
+<li>Dynamic portfolio management</li>
+<li>Market sentiment analysis</li>
+</ol>
+</li>
+<li>Execution module<ol>
+<li>Modeling Data</li>
+<li>Market choosing</li>
+<li>Trading signal send out</li>
+</ol>
+</li>
+<li>Technology &amp; market rules</li>
+</ol>
+<h2 id="SECTOR-Trading-fundamentals"><a href="#SECTOR-Trading-fundamentals" class="headerlink" title="SECTOR-Trading fundamentals"></a>SECTOR-Trading fundamentals</h2><p>The progress of algorithmic trading is built on the market system that the identical assets can trade  in different exchange with a variety of trading tools, such as electronic trading, advanced communication network, and order forms. </p>
+<p>The first step of learning in this field is understanding some basic perceptions. The orders match in a market with some special rules. The order forms include limit order and market order.  The matching rules include auction, and continuous trading. There is a key point that the market and order are operated in a dynamic process. The traders, whatever human or artificial programs, are capture trading opportunities by monitoring the power change of bid and ask. It should also understand that some limit orders may be misleading. The market will produce many trading data including settlement data, submitting but canceling order data, and other information, such as news, rumors, etc. </p>
+<p>The most important and time-taking step is data cleaning in financial data analysis. We should adjust the time stamp to a same standard while considering trading time overlap. The holidays are also a crucial point, because the discrepancy of holiday will result in non-aligned data misleading our models. </p>
+<p>The market data own too much information, therefore we should collect the data as detailed as we can. The level III data is the best one. </p>
+<p>We should focus on the intra-day data and critical fundamental data, such as intra-day price change range, financial data disclosure, and credit rating. We should also watch the market parameters, such as market liquidity indicators. We will be constrained in executing our strategies if the market liquidity is eliminated. </p>
+<h2 id="SECTION-Time-series"><a href="#SECTION-Time-series" class="headerlink" title="SECTION-Time series"></a>SECTION-Time series</h2><p>The only thing that should be emphasized is the multivariate time series analysis is the most suitable tool for high-frequency data. </p>
+<p>The asset price, asset return, and volatility data have the same weight in this part. </p>
+<h2 id="SECTION-Advanced-technologies"><a href="#SECTION-Advanced-technologies" class="headerlink" title="SECTION- Advanced technologies"></a>SECTION- Advanced technologies</h2><p>The Markov process as a better tool gives us more inspiration. There are some explicit relationship between volatility, volume, short term price trend, and the time between trades. </p>
+<p>Many models are based on a homogeneous principle that expected value is composed with explained trends that are extracted from long term historical data and an adjustment that are extracted from some near-happened events. </p>
+<p>It is noticed that some advanced artificial intelligence technology are used in algorithmic trading recently, such as machine learning, neural network, and reinforcement learning. </p>
+<h2 id="SECTOR-Market-data-analysis"><a href="#SECTOR-Market-data-analysis" class="headerlink" title="SECTOR-Market data analysis"></a>SECTOR-Market data analysis</h2><p>It is essential those classical financial frameworks, theories, and indicators, if you want to own a great trading model.<br>For example: </p>
+<ol>
+<li>portfolio optimal model</li>
+<li>dynamic portfolio management</li>
+<li>market sentiment analysis</li>
+</ol>
+<h3 id="market-sentiment-analysis"><a href="#market-sentiment-analysis" class="headerlink" title="market sentiment analysis"></a>market sentiment analysis</h3><p>The market participants will under-reacting or over-reacting for shocks. The market sentiment analysis is very important for high frequency or short term trading. Fortunately, with the development of AI technologies, this field has an increasing number of tools. However, some traditional theories still have their merits. </p>
+<h2 id="SECTOR-Execution-module"><a href="#SECTOR-Execution-module" class="headerlink" title="SECTOR-Execution module"></a>SECTOR-Execution module</h2><p>Some conceptions:<br>ADV, VWAP, IS, Quote price, bid-ask spread, the intra-day volatility, etc.<br>There are two key points in high frequency, the time dimension, and volume dimension. The features of market data based on those two dimensions can supply much effective information to capture trading signals. Everything is dynamic in a market. </p>
+<p>In this section, those experts invent many models. Nevertheless, the assumptions of those models are too simple to adapt to the real complex market.</p>
+<p>The Poisson distribution and exponential distribution are applied in the conditions of this section widely. </p>
+<p>The reinforcement learning has deep potential in this field, because capturing a great trading signal required forecasting market trends and assessing trading outcomes. Can you remember anything like this pattern, yes, the alpha-Go. I prepare to write an essay about deep reinforcement learning in future, not too long. </p>
+<h2 id="SECTOR-The-market-architecture-and-trading-infrastructure"><a href="#SECTOR-The-market-architecture-and-trading-infrastructure" class="headerlink" title="SECTOR-The market architecture and trading infrastructure."></a>SECTOR-The market architecture and trading infrastructure.</h2><p>Order management system: Ez Castle, Portware, FlexTrade<br>The vendors: Reuters,Redline Trading Solutions, Exegy.<br>The basic fundamental principles of market matching system.</p>
+<h2 id="SECTOR-DISCUSSION"><a href="#SECTOR-DISCUSSION" class="headerlink" title="SECTOR DISCUSSION"></a>SECTOR DISCUSSION</h2><p>There are two branches about those agents building the dynamic order books process, one is simple agents with ensemble learning, the other is two agents with complex architecture. Each of them has individual specific advantages in different stages of model.</p>
+<p>It should be notable that the more smooth data means more information loss. None can determine the significant level of those lost information before demonstrating analysis target. Therefore, we should keep enough prudence for artificial data smoothing. </p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -184,384 +265,121 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sos" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i> 
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+    <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://wangjiatao.github.io/2021/08/11/market-microstructure/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/05/society-culture-and-influence/" class="archive-article-date">
-  	<time datetime="2021-08-05T05:16:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-05</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/08/05/society-culture-and-influence/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">society, culture,  and influence</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/05/society-culture-and-influence/">society, culture,  and influence</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">essay</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/07/29/NN-vs-imitation-game/" class="archive-article-date">
-  	<time datetime="2021-07-29T14:43:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/07/29/NN-vs-imitation-game/">NN vs imitation game</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ML</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">math</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/07/28/section-rotation-and-wave-correlation/" class="archive-article-date">
-  	<time datetime="2021-07-28T05:09:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/07/28/section-rotation-and-wave-correlation/">section rotation and wave correlation</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">finance</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">math</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/27/stochastic-process-and-market-microstructure/" class="archive-article-date">
-  	<time datetime="2021-06-26T16:24:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/27/stochastic-process-and-market-microstructure/">stochastic process and market microstructure</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">finance</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">math</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/16/AI-mathematics-and-CS/" class="archive-article-date">
-  	<time datetime="2021-06-16T15:04:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/16/AI-mathematics-and-CS/">AI, mathematics and CS</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">math</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-drafts">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/30/margin-call-and-archegos/" class="archive-article-date">
-  	<time datetime="2021-03-30T03:56:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/30/margin-call-and-archegos/">margin call and archegos</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">finance</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/02/philosophy-of-ML/" class="archive-article-date">
-  	<time datetime="2021-03-02T06:42:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/02/philosophy-of-ML/">philosophy of ML</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">methodology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/02/27/%E4%BA%A7%E5%93%81%EF%BC%8C%E7%BB%8F%E5%8E%86%E5%92%8C%E7%AE%B4%E8%A8%80/" class="archive-article-date">
-  	<time datetime="2021-02-27T09:11:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/02/27/%E4%BA%A7%E5%93%81%EF%BC%8C%E7%BB%8F%E5%8E%86%E5%92%8C%E7%AE%B4%E8%A8%80/">产品，经历和箴言</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">methodology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/02/25/math-for-cs-and-ml-1/" class="archive-article-date">
-  	<time datetime="2021-02-25T13:57:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/02/25/math-for-cs-and-ml-1/">math for cs and ml-1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ML</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">math</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2021/page/2/">2</a><a class="page-number" href="/archives/2021/page/3/">3</a><a class="extend next" rel="next" href="/archives/2021/page/2/">Next &amp;raquo;</a>
-    </nav>
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://wangjiatao.github.io/2021/08/11/market-microstructure/",
+  owner: 'wangjiatao',
+  repo: 'wangjiatao.github.io',
+  oauth: {
+    client_id: '30eb55b943add2d2eaae',
+    client_secret: '42156f52dd37ca7af1c9f78f2646c5b8527c490b',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -585,8 +403,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
