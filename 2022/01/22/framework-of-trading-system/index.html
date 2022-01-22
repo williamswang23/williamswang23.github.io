@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://wangjiatao.github.io">
-  <title>Archives | Williams Wang&#39;s blog</title>
+  <title>framework of trading system | Williams Wang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Williams Wang&#39;s blog">
-<meta property="og:url" content="http://wangjiatao.github.io/archives/page/4/index.html">
+  <meta name="description" content="A Solution of a trading system本文是我关于RL在交易系统应用场景中应用的部分拙见，本人深知自身才疏学浅，难免词不达意，如有错误，恳请斧正！ 本文简要分为以下几个部分： 1. RL应用于交易系统的合理性； 2. 环境感知；3. 定义reward； 4. 决策; 5. discussion. [TOC]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="framework of trading system">
+<meta property="og:url" content="http://wangjiatao.github.io/2022/01/22/framework-of-trading-system/index.html">
 <meta property="og:site_name" content="Williams Wang&#39;s blog">
+<meta property="og:description" content="A Solution of a trading system本文是我关于RL在交易系统应用场景中应用的部分拙见，本人深知自身才疏学浅，难免词不达意，如有错误，恳请斧正！ 本文简要分为以下几个部分： 1. RL应用于交易系统的合理性； 2. 环境感知；3. 定义reward； 4. 决策; 5. discussion. [TOC]">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-01-22T05:59:25.000Z">
+<meta property="article:modified_time" content="2022-01-22T05:59:25.663Z">
 <meta property="article:author" content="Williams Wang">
-<meta property="article:tag" content="‘CFA, FRM, CPA, ML, DL, Python, rust’">
+<meta property="article:tag" content="finance">
+<meta property="article:tag" content="RL">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Williams Wang&#39;s blog" type="application/atom+xml">
@@ -139,36 +144,90 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-framework-of-trading-system" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/01/29/BIS-market-sentiment-and-trade-war/" class="archive-article-date">
-  	<time datetime="2021-01-29T05:10:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-29</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/01/29/BIS-market-sentiment-and-trade-war/">BIS:market sentiment and trade war</a>
+    <h1 class="article-title" itemprop="name">
+      framework of trading system
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+	<!--显示阅读次数-->
+	
+  	<br/>
+  	<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+ 	 <span class="icon-sort"></span>
+ 	 <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+    	阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  	</span>
+  	</a>
+	
+	<!--显示阅读次数完毕-->
+        
+        <a href="/2022/01/22/framework-of-trading-system/" class="archive-article-date">
+  	<time datetime="2022-01-22T05:59:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="A-Solution-of-a-trading-system"><a href="#A-Solution-of-a-trading-system" class="headerlink" title="A Solution of a trading system"></a>A Solution of a trading system</h1><p>本文是我关于RL在交易系统应用场景中应用的部分拙见，本人深知自身才疏学浅，难免词不达意，如有错误，恳请斧正！</p>
+<p>本文简要分为以下几个部分： 1. RL应用于交易系统的合理性； 2. 环境感知；3. 定义reward； 4. 决策; 5. discussion.</p>
+<p>[TOC]</p>
+<a id="more"></a>
+
+
+<h2 id="RL-应用于交易系统的合理性"><a href="#RL-应用于交易系统的合理性" class="headerlink" title="RL 应用于交易系统的合理性"></a>RL 应用于交易系统的合理性</h2><p>近年来，随着金融科技的迅速发展。很多基于机器学习和人工智能的相关技术应用在了金融领域。 这些应用可以分为两个方向：第一个方向是应用于金融服务。主要体现在银行系统和交易清算等领域； 另一个应用是延续传统的量化分析的方向。从传统的技术逐步引入新的人工智能技术，从传统的结构化数据分析到加入另类数据分析。 而后者就涉及到本文所指的交易系统。 </p>
+<p>机器学习技术从paradigm上可以简要分为： 监督学习，非监督学习，强化学习。根据其算法显示和隐示的关系，可以将传统的脱胎于统计学的机器学习技术认为是显示的，其中包括我们所熟知的 LASSO，SVM，PCA，CART，K NN， K means， random forest 等。可以将所谓的“black box” 技术，例如NN和基于NN的DL技术认为是隐示的。 但是对于DL的显示化研究一致在持续进行，例如Berkeley的Ma yi教授对于深度学习数学原理的研究。而基于目前技术的发展，单一算法在应对复杂问题时候，非常容易出现overfit 和 variance过大的问题，因此，合成算法成为一个很有潜力的方向。在这方面主要的代表就是基于ensemble learning发展起来的相关技术，例如南大周志华教授对于随机森林的研究。 </p>
+<p>因为金融体市场的特殊性，尤其是在交易环节，呈现信噪比过低，regime时变等特征，导致很多传统算法，尤其是显示算法在某些交易环节出现ROC表现不佳的情况。而解决许多金融决策问题的数学方法传统上是通过随机过程的建模和使用随机控制的技术。模型的选择通常是由平衡实用性和适用性的需要决定的。但是现实是，对金融市场特征的捕捉极其复杂，经典的随机最优控制工具会捉襟见肘。 RL技术由于其paradigm特征，使得其具有更强的adaptive的特性。进而导致基本原理在数学上相对显示，同时基于其组成部分具体算法的不同， 又导致其具有相对较强的性能。 从广义上说，笔者认为RL也算是ensemble learning的一部分，因此其技术潜力的上限相对可能更高。其次，RL技术在环境感知模块上可加载的功能灵活性较强，当然不同算法有其各自的合理性， 因此具有更大的可能适应时变regime的市场情况。RL本身其实不能算是一门完善的算法，而是一种建模paradigm。其整体表现取决于module的整体状态。所以笔者在前述内容中将RL基于paradigm分类成一个单独的门类。一饮一啄，基于目前公开技术的现状， RL在高频交易领域可能具有更容易落地的实现场景，尤其是在优化执行、投资组合优化、期权定价和对冲、做市、智能订单路由和机器人辅助交易执行的子领域。事实上，这也是很多传统机器学习技术在金融交易中的应用场景。 </p>
+<h2 id="环境感知"><a href="#环境感知" class="headerlink" title="环境感知"></a>环境感知</h2><p>事实上，经典的RL技术中，环境感知，决策函数，reward 函数的作用是相互纠缠的。因此对于以下三个部分不能孤立的看问题，而是要综合分析。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph TD;</span><br><span class="line">    E(environment set)--reward--&gt; A(agent);</span><br><span class="line">    A--action--&gt;E;</span><br><span class="line">    E--hidden--&gt;V</span><br><span class="line">    V(value)--action function--&gt;C(action set);</span><br></pre></td></tr></table></figure>
+<p>传统随机金融建模过程，就是通过经典的扩散过程函数簇$d X_t=\mu (t,X_t) dt +\sigma(t,X_t) dW_t$来描述资产动态过程。而该过程在一定条件下具有Markov性。故而Markov分析也是是传统金融模型的重要组成部分，也可以看作是传统金融模型对环境的定义。 其核心在于通过Markov链和转移矩阵来描述有限状态的变化过程过程。 在这个过程中，我们可以证明基于一定的条件下，Markov过程是稳定的过程。这也是一些适应性算法的理论基础，通过估计出过程的转移矩阵来感知环境，进而对未来进行估计并辅助决策。 因此，经典的RL算法可以部分归结为 MDPs 问题。详见<a target="_blank" rel="noopener" href="https://book.douban.com/subject/2850962/">Fundamentals of Adaptive Filtering (豆瓣)</a><a target="_blank" rel="noopener" href="https://book.douban.com/subject/3242731/">Probability, Random Variables and Stochastic Processes (豆瓣)</a><a target="_blank" rel="noopener" href="https://book.douban.com/subject/10600317/">Topics in Random Matrix Theory (豆瓣)</a><a target="_blank" rel="noopener" href="https://book.douban.com/subject/1650656/">Stochastic Calculus for Finance II (豆瓣)</a>，以及经典的<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=uqZ1xECT8FE&list=PLldN_DpkXL3aregPC4NqcDJ8MYEvGBkRT">Terry Tao (1.1) Universality for random matrix ensembles of Wigner type, part 1.1 - YouTube</a>。基于Markov来对环境进行建模有很强的合理性，尤其是在中低频的领域。主要原因在于总低频领域相对regime切换更加不频繁和相对不剧烈，矩阵的作用域相对更长。 但是对于更高频率的领域，稳定的Markov过程相对更容易被噪音和外部冲击所破坏。 因此，有理由考虑是否可以引入其他环境感知和搜索技术在应用在高频场景。例如，基于对LOB的时序分析。基于action和game theory原理，对于特定场景下，尤其是参与者影响力更加集中的场景进行分析和搜索。将高频市场环境抽象为multi agents interaction环境，结合MCMC相关技术来提高搜索效率，更好的感知环境，增强environment set的构建和行为函数的完善。</p>
+<p>对于金融市场来说， 隐藏和哄骗交易行为pattern对于机构投资者是重要的目标。同时，市场公开的结构化信息有限，这是金融市场和棋类人任务的重要区别。因此，可以将市场环境抽象为部分信息环境，同时还伴随着 multi-armed bandit问题，这也是RL中环境，决策和reward相互纠缠的重要体现。在这个背景下， HMM的思想有一定的参考价值。RL在交易行为分析中的环境感知，除了分析市场指标，例如 bid ask spread 和LOB之外，更应该注重通过市场数据和另类数据来分析市场的集中度，进而侦测其他参与者的行为模式，和其底层交易trigger，并以此讲市场参与者适当分类，例如事件驱动，价值投资者，流动性提供者，front runner等。这背后的逻辑可以用Fourier transform来比喻。</p>
+<h2 id="定义reward"><a href="#定义reward" class="headerlink" title="定义reward"></a>定义reward</h2><p>对于交易，reward是交易行为的return，从离散的角度说可以认为是{-1, 0, +1}的set。从连续的角度说，则为实数轴的取值范围。首先明确一点，每次交易行为产生的预期reward，要考虑其出现的分布。如果简单化模型，那么认为其是即刻的，如果考虑实际市场，要考虑时间分布情况。第二，value函数的重要组成部分之一就是每次action产生的reward。在从reward构建value function的过程，需要考虑reward的折现情况，从纯数学的角度说，这是RL和和金融非常典型的“来电”时刻。</p>
+<h2 id="决策"><a href="#决策" class="headerlink" title="决策"></a>决策</h2><p>决策是RL训练的环节。 基于不同的出发点，可以分为 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Temporal_difference_learning">Temporal difference learning - Wikipedia</a>； <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Q-learning">Q-learning - Wikipedia</a>；<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/State%E2%80%93action%E2%80%93reward%E2%80%93state%E2%80%93action">State–action–reward–state–action - Wikipedia</a>等方法。<br>RL的决策过程可以简单的分为3个steps：<br>Step one： 确定合适的action set。<br>Step two：确定value。<br>Step three：根据预期的reward来选择合适的action。</p>
+<p>在这个过程中，首先要明确，Value收到环境和行为的影响。对于经典的棋类问题，可以归结为离散的action set。但是对于交易决策来说，绝大部分场景是连续过程，或者说是近连续过程。同时，现阶段的action，其reward可能在更晚的时候返回。同时，结合上述部分对于交易行为的reward的定义。可以很形象并且粗糙的将交易行为抽象为经典的<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Multi-armed_bandit">Multi-armed bandit问题 - Wikipedia</a>。在这个问题上，Robbins的开创性工作中首次考虑了这个问题，他推导出了渐进地达到平均奖励的政策，该政策在极限范围内收敛于最佳arms的奖励。后来，Multi-armed bandits问题在贴现、贝叶斯、马尔科夫、预期报酬和对抗性设置中得到了研究。具体参见Berry和Fristedt对该问题的经典结果的回顾。</p>
+<p>三个方法都是通过评估action和state因素来不断“升级”其value function的值。基于其value function升级过程的不同。可以将其分为on policy learning和off policy learning。前者的典型代表是SARSA，后者的典型代表是 Q- learning。二者的区别在于对value function<br>升级的过程中，一方面升级所需的样本数据和当前的Q function是否哟管，另一方面新的value 值的计算是否同时基于新的state和action。</p>
+<p>在这个过程中，还需要考虑exploration &amp; exploitation的问题。exploration意味着，agent消耗大量的时间来搜索不同的action sequence 的可能结果，同时评估并确定当前的次优选择或全局的最优选择。而exploitation则仅仅基于action function和当前经验来选择当前的最优选择。我们需要agent能取得二者之间的平衡，来达到整体最有的效益。</p>
+<p>最终我们的训练目的是找到最优的action sequence来达成最大化的value function。</p>
+<h2 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h2><p>基于笔者个人的理解，就目前而言，对于广义的RL本身，核心在于训练而不是模型设计。RL本身的原理是在通过搜索最优action来说追求value 最大化。但是对于金融领域而言，在RL本身的架构上，还是有很多的可见的进步空间。包括基于DL形成<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Deep_reinforcement_learning">Deep reinforcement learning deepRL- Wikipedia</a>，就为分析高维度数据提供了新的思路，deep RL可以更好的应对state维度极高的问题，提升了model对于复杂数据的容纳程度，通过DL来优化对action的搜索行为。</p>
+<p>其次，不论是DL还是RL，在面对金融数据分析的过程中，从探索的角度，要求我们更多的从数学角度进行深入的思考。这个方面，笔者很赞同对DL 进行显示研究的努力，基于对DL的显示研究，Ma yi教授认为DL所谓的black box 可以看作高维Manifolds在低维的映射。该成果笔者认为对AI领域的深入研究和对科学求真的认识产生了极大的推进。见贤思齐，对金融数据，金融市场的研究是否也有其更加抽象和本质的理论优待发现呢？笔者个人坚定的认为该理论存在。 但是我们也要注意一点，对于金融市场的研究和对于其他任务最大的不同，在于金融市场的重要影响因素之一是人的意识。写到此处，笔者产生了以下3个疑问：1. 理性人是人么； 2. 理性人是稳定的么； 3. 意识的本源是可以探知的么。遇事不决，量子力学。笔者有一点浅显的看法用于抛砖引玉：理性人如果不是人，就意味着理性人假说是对模型的重要误导，不是无意义，是负意义；理性人是人，但是不稳定，就意味着无法达到全局最优；意识到本源如果不可探究，就意味着局部最优可能也无法达到。期望读者有兴趣可以撰文探讨。交流带来进步，共勉。</p>
+<hr>
+<p>上述主要是基于有限时间内的value based methods来简要介绍下RL在金融领域可能的解决方案，考虑到篇幅所限，对于技术细节并未予以详解，对于该部分内容，事实上已经部分存在一篇草稿中，但是基于各种原因，拖稿到此刻依然未完成🙇，读到此处读者可点此链接听这首歌<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ZSM3w1v-A_Y">Timbaland - Apologize ft. OneRepublic - YouTube</a>。类似于非监督学习，RL同样有 policy-based method来训练model。后续有机会会另开新篇。</p>
+<p>PS：本文写作动力源自昨夜梦回的灵感。草草写就，词不达意，望读者诸君海涵。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -178,112 +237,127 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ML</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">sentiment</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">RL</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sos" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i> 
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+    <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://wangjiatao.github.io/2022/01/22/framework-of-trading-system/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/01/29/equilibrium-apt/" class="archive-article-date">
-  	<time datetime="2021-01-29T04:12:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">finance</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2022/01/19/principle-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">principle-2</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/01/29/%E5%BC%80%E7%AF%87/" class="archive-article-date">
-  	<time datetime="2021-01-29T04:05:46.812Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/01/29/hello-world/" class="archive-article-date">
-  	<time datetime="2021-01-29T03:22:33.446Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-29</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/01/29/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span>
-    </nav>
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://wangjiatao.github.io/2022/01/22/framework-of-trading-system/",
+  owner: 'wangjiatao',
+  repo: 'wangjiatao.github.io',
+  oauth: {
+    client_id: '30eb55b943add2d2eaae',
+    client_secret: '42156f52dd37ca7af1c9f78f2646c5b8527c490b',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -307,8 +381,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
