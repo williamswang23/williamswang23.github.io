@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> information and DNN · Williams Wang's blog</title><meta name="description" content="information and DNN - Williams Wang"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/hexo/favicon.png"><link rel="stylesheet" href="/hexo/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://williamswang23.github.io/atom.xml" title="Williams Wang's blog"><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/hexo/atom.xml" title="Williams Wang's blog" type="application/atom+xml">
+</head><body><div class="wrap"><header><a href="/hexo/" class="logo-link"><img src="/hexo/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/hexo/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/hexo/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">information and DNN</h1><div class="post-info">Feb 19, 2021</div><div class="post-content"><h1 id="Opening-the-black-box-of-Deep-Neural-Networks-via-Information"><a href="#Opening-the-black-box-of-Deep-Neural-Networks-via-Information" class="headerlink" title="Opening the black box of Deep Neural Networks via Information"></a>Opening the black box of Deep Neural Networks via Information</h1><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1703.00810">[1703.00810] Opening the Black Box of Deep Neural Networks via Information</a></p>
+<a id="more"></a>
+<hr>
+<h2 id="review"><a href="#review" class="headerlink" title="review:"></a>review:</h2><p>this paper explains DNN principle from alternative perspective, information theory, and tries to find a more efficient method to converge loss function. the author also shows sensitive outcome of relative factors, like training set size, amount of layers and nodes of each layer, to finding direct of model parameter choosing. </p>
+<ol>
+<li>the NN model is a information compression process, and it could measure model’s performance by indicators which original from information theory.</li>
+<li><blockquote>
+<p>the authors noted that layered neural networks form a Markov chain of successive representations of the input layer and suggested studying them in the Information Plane - the plane of the Mutual Information values of any other variable with the input variable X and desired output variable Y.</p>
+</blockquote>
+</li>
+<li>a new concept: information bottleneck: <ol>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BF%A1%E6%81%AF%E7%93%B6%E9%A2%88">信息瓶颈 - 维基百科，自由的百科全书</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Information_bottleneck_method">Information bottleneck method - Wikipedia</a></li>
+</ol>
+</li>
+<li><img src="https://i.imgur.com/K7T1HP6.jpg" alt="IB"></li>
+<li><img src="https://i.imgur.com/Gw2Vzff.jpg" alt="NN"></li>
+<li>the IB(information bottleneck) measure precise rate of a DNN model by MI(mutual information) indicator. it try to minimize difference of MI between input set and output set, through DNN model’s layers and nodes, $T_{i}%. </li>
+<li><blockquote>
+<p>In the ERM phase the gradient norms are much larger than their stochastic ﬂuctuations, resulting in a rapid increase in the mutual information on the label variable Y . In the compression phase, the ﬂuctuations of the gradients are much larger than their means, and the weights change essentially as Weiner processes, or random diffusion, with a very small inﬂuence of the error gradients.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>Our analysis gives the following new results: (i) the Stochastic Gradient Decent (SGD) optimization has two main phases. In the ﬁrst and shorter phase the layers increase the information on the labels (ﬁtting), while in the second and much longer phase the layer reduce the information on the input (compression phase). </p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>(iii) The main advantage of the hidden layers is computational, as they dramatically reduce the stochastic relaxation times. (</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>Our ﬁrst important insight is to treat the whole layer, T, as a single random variable, characterized by its encoder, P(T | X), and decoder, P(Y | T) distributions.</p>
+</blockquote>
+</li>
+<li>$I(X;Y)=D_{KL}[p(x,y)||p(x)p(y)]=\sum_{x \in X, y \in Y}p(x,y)log(\frac{p(x,y)}{p(x)p(y)})=H(X)-H(X|Y)$,H(X) and H(X | Y ) are the entropy and conditional entropy of X and Y</li>
+<li>two important properties: <ol>
+<li>$I(X;Y)=I(\phi(X);\phi(Y))$</li>
+<li>$given\ X\rightarrow Y \rightarrow Z,\ then\  I(X;Y) \geq I(X;Z)$</li>
+</ol>
+</li>
+<li><blockquote>
+<p>Any representation variable, T, deﬁned as a (possibly stochastic) map of the input X, is characterized by its joint distributions with X and Y , or by its encoder and decoder distributions, P(T | X) and P(Y | T), respectively.Given P(X; Y ), T is uniquely mapped to a point in the information plane with coordinates (I(X; T), I(T; Y )). When applied to the Markov chain of a K-layers DNN, with $T_i$ denoting the $i^th$ th hidden layer as a single multivariate variable, the layers are mapped to K monotonic connected points in the plane - henceforth a unique information path which satisfies the following DPI chains:<br><img src="https://i.imgur.com/3rkaIIr.jpg" alt="DPI"></p>
+</blockquote>
+</li>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%85%85%E5%88%86%E7%BB%9F%E8%AE%A1%E9%87%8F">充分统计量 - 维基百科，自由的百科全书</a></li>
+<li>$S(X)$: sufficient statistic</li>
+<li><blockquote>
+<p>This leads to the Information Bottleneck (IB) tradeoff [Tishby et al. (1999)], which provides a computational framework for ﬁnding approximate minimal sufﬁcient statistics, or the optimal tradeoff between compression of X and prediction of Y .</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>If we deﬁne t ∈ T as the compressed representations of x ∈ X, the representation of x is now defined by the mapping p (t | x).</p>
+</blockquote>
+</li>
+<li>$given\ Y\rightarrow X\rightarrow T,\ min_{p(t|x),p(y|t),p(t)}{I(X;T)-\beta I(T;Y)}$. </li>
+<li><blockquote>
+<p>The Lagrange multiplier β determines the level of relevant information captured by the representation T, I(T; Y ), which is directly related to the error in the label prediction from this representation.</p>
+</blockquote>
+</li>
+<li><img src="https://i.imgur.com/q3FKuSs.jpg" alt="p">, $Z(x;\beta)$ is the normalization function.</li>
+<li><blockquote>
+<p>For deterministic functions, y = f(x), the mutual information is insensitive to the complexity of the function f(x) or the class of functions it comes from.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>If we have no information on the structure or topology of X, then even for a binary Y there is no way to distinguish low complexity classes (e.g. functions with a low VC dimension) from highly complex classes (e.g. essentially random function with high mixing complexity, see: Moshkovich and Tishby (2017)), by the mutual information alone.<strong>There is, however, a fundamental cure to this problem. We can turn the function into a stochastic rule by adding (small) noise to the patterns.</strong></p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>In this case we can interpret the output of the sigmoid as the probability of the label y = 1 and the function is a simple linear hyper-plane in the input space X with noise deterp(x) mined by the width of the sigmoid function.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p><strong>The sufﬁcient statistics in this case is the dot product w · x with precision (in bits) determined by the dimensionality of w and the margin, or by the level of noise in the sigmoid function.</strong></p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>The learning complexity is related to the number of relevant bits required from the input patterns X for a good enough prediction of the output label Y , or the minimal $I(X; \hat{X})$ under a constraint on I($\hat{X}$; Y ) given by the IB.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>During the fast - ERM - phase, which takes a few hundred epochs, the layers increase the information on the labels (increase $I_Y$ ) while preserving the DPI order (lower layers have higher information). In the second and much longer training phase the layers’ information on the input, $I_X$ , decreases and the layers lose irrelevant information until convergence (the yellow points). We call this phase the representation compression phase.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>the compression phase signiﬁcantly reduced the layers’ label information in the small sample case, but with large samples the label information mostly increased.This looks very much like overﬁtting the small sample noise, which can be avoided with early stopping methods</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>The ﬁrst is a drift phase, where the gradient means are much larger than their standard deviations, indicating small gradient stochasticity (high SNR). In the second phase, the gradient means are very small compared to their batch to batch ﬂuctuations, and the gradients behave like Gaussian noise with very small means, for each layer (low SNR). We call this the diffusion phase. S</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>The drift phase clearly increases I Yfor every layer, since it quickly reduces the empirical error. On the other hand, the diffusion phase mostly adds random noise to the weights, and they evolve like Wiener processes, under the training error or label information constraint.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>But as the gradient noises seem to vary and eventually decrease when the layers converge, suggesting that the convergence points are related to the critical slowing down of stochastic relaxation near phase transitions on the Information Bottleneck curve. This intriguing hypothesis is further examined elsewhere.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>Moreover, the correlations between the in-weights of different neurons in the same layer, which converge to essentially the same point in the plane, was very small. This indicates that there is a huge number of different networks with essentially optimal performance, and attempts to interpret single weights or even single neurons in such networks can be meaningless.</p>
+</blockquote>
+</li>
+<li>There are several important outcomes of this experiment:<ol>
+<li>Adding hidden layers dramatically reduces the number of training epochs for good generalization.</li>
+<li>The compression phase of each layer is shorter when it starts from a previous compressed layer.</li>
+<li>The compression is faster for the deeper (narrower and closer to the output) layers.</li>
+<li>Even wide hidden layers eventually compress in the diffusion phase. Adding extra width does not help.</li>
+</ol>
+</li>
+<li><blockquote>
+<p>Others have suggested that such layers can still improve the Signal-to-noise ratio (SNR) of the patterns in some learning models [Kadmon and Sompolinsky (2016)]. In our simulations all the hidden layers eventually compress the inputs, given enough SGD epochs.</p>
+</blockquote>
+</li>
+<li><img src="https://i.imgur.com/gdOiicV.jpg" alt="beta"></li>
+<li><blockquote>
+<p>As expected, with increasing training size the layers’ true label information (generalization) I Y is pushed up and gets closer to the theoretical IB bound for the rule distribution. The effect of the training size on the layers is different for I Y and I X . In the lower layers, the training size hardly changes the information at all, since even random weights keep most of the mutual information on both X and Y. However, for the deeper layers the network learns to preserve more of the information on Y and better compress the irrelevant information in X. With larger training samples more details on X become relevant for Y and we there is a shift to higher I X in the middle layers.</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h2 id="discussion"><a href="#discussion" class="headerlink" title="discussion"></a>discussion</h2><ol>
+<li>the NN model, from input to output could be looked like a compression perception process, but how could to measure rule of back propagation in a NN model?</li>
+<li>in compression process, the model would drop out some “information or noise”, that results in output of the model become more and more sensitive for changes of weighted of model’s nodes. how to explain this phenomenon from geometry perspective？</li>
+<li>the linear feature of NN model could be interpreted with manifold of cost function, how to explain process of back propagation with a similar approach? we have known how to dimension deduction, but how to dimension growing up from low dimension space to higher while keeping a satisfactory precise rate.</li>
+<li>from geometry perspective, understanding and training NN model may become more efficient and intuitive.</li>
+</ol>
+</div></article></div></main><footer><div class="paginator"><a href="/hexo/2021/02/19/DL-NN-geometrical-perspective/" class="prev">PREV</a><a href="/hexo/2021/02/16/deep-networks-for-classification/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2023 <a href="http://williamswang23.github.io">Williams Wang</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>

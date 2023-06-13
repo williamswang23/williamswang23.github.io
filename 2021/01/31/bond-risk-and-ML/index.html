@@ -1,0 +1,116 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> bond risk and ML · Williams Wang's blog</title><meta name="description" content="bond risk and ML - Williams Wang"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/hexo/favicon.png"><link rel="stylesheet" href="/hexo/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://williamswang23.github.io/atom.xml" title="Williams Wang's blog"><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/hexo/atom.xml" title="Williams Wang's blog" type="application/atom+xml">
+</head><body><div class="wrap"><header><a href="/hexo/" class="logo-link"><img src="/hexo/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/hexo/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/hexo/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">bond risk and ML</h1><div class="post-info">Jan 31, 2021</div><div class="post-content"><h1 id="bond-risk-premiums-with-machine-learning"><a href="#bond-risk-premiums-with-machine-learning" class="headerlink" title="bond risk premiums with machine learning"></a>bond risk premiums with machine learning</h1><p><a target="_blank" rel="noopener" href="https://academic.oup.com/rfs/article-abstract/34/2/1046/5843806?redirectedFrom=fulltext">Bond Risk Premiums with Machine Learning | The Review of Financial Studies | Oxford Academic</a></p>
+<hr>
+<p>the evaluation of risk premium is a truism. </p>
+<a id="more"></a>
+
+<hr>
+<h2 id="abstract"><a href="#abstract" class="headerlink" title="abstract:"></a>abstract:</h2><ol>
+<li><blockquote>
+<p>A likely explanation for the slow adoption of advances in statistical learning is that these methods are not suitable for structural analysis and parameter inference.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>we show that nonlinear machine learning methods, such as extreme trees and NNs, are useful to detect predictable variations in bond excess returns, as indicated by out-of-sample predictive R 2 s that are signiﬁcantly higher than those obtained by data compression techniques (e.g., linear combinations of forward rates, as in Cochrane and Piazzesi (2005), and factors extracted from macroeconomic variables, as in Ludvigson and Ng (2009)) and penalized regression techniques.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>Second, zooming in on nonlinear methods, we document that using information from macroeconomic and ﬁnancial variables improves the predictive accuracy of forecasts based only on (potentially nonlinear transformations of) the yield curve.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>we investigate the ability of NNs to forecast the ﬁrst three principal components of the term structure: level, slope, and curvature.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>we also ﬁnd that economic priors about the role of variables may improve the performance of the network.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>diﬀerent types of network structures may be needed for diﬀerent asset markets.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>Note that in this case the mapping between yields and factors is nonlinear in the state variables, meaning that standard linear PCA represents a mere approximation and does not necessarily give consistent estimates of the true underlying quadratic factor (see Sch¨olkopf et al., 1998).</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>Nonlinearities are also featured in reduced-form term structure models with regime switches (e.g., Dai et al., 2007), in shadow rate models (Black, 1995; Wu and Xia, 2016), and in the model by Feldhutter et al. (2016) where the price of a bond is a time-varying weighted average of bond prices in artiﬁcial, aﬃne Gaussian economies.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>“supervised learning” algorithms, such as the lasso, elastic net, partial least squares, regression trees, random forests, and NNs, that explicitly condition on the response variables to summarize the information in the predictors, may arguably prove useful to overcoming the limitations of standard data compression methods. </p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>traditional PCA and factor analysis (FA) are based on the assumption that all variables could bring useful information for the prediction of future excess bond returns, although the impact of some of them could be small.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>Penalized regressions, such as lasso and elastic net, as well as NNs exploit the entire span of the input variables without imposing that they all carry useful information for determining excess bond returns.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>The series were selected to represent broad categories of macroeconomic time series: real output and income, employment and hours, real retail, manufacturing and sales data, international trade, consumer spending, housing starts, inventories and inventory sales ratios, orders and unﬁlled orders, compensation and labor costs, capacity utilization measures, price indexes, interest rates and interest rate spreads, stock market indicators, and foreign exchange measures.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>The training and the validation samples are consequential. In this respect, we do not cross-validate by randomly selecting independent subsets of data to preserve the time-series dependence of both the predictors and the target variables. Forecasts are produced recursively by using an expanding window procedure; that is, we reestimate a given model at each time t and produce out-of-sample forecasts for 1-year holding period excess returns.</p>
+</blockquote>
+</li>
+<li>the indicator to measure model’s performance:<img src="https://i.imgur.com/pAT681b.jpg" alt="R2indcator"> </li>
+<li><blockquote>
+<p>a shallow NN with one hidden layer performs on par with a network with two layers, but deeper networks worsen the performance.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>we ﬁnd that lagged values of the yield curve cannot improve the forecast obtained using just the time-t term structure when we account for nonlinearities.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>In the second implementation (“using fwd rates directly”), we treat the whole set of forward rates as additional regressors with respect to macroeconomic variables. The results in panels A and B shows that (1) dense modeling, such as data compression techniques and ridge regression, tends to perform poorly out-of-sample and (2) sparse modeling with both regularization and shrinkage (i.e., elastic net regressions), perform well, particularly when restricting the linear combination of forward rates. C</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>A shallow NN is successful in extracting such information about the future level of the curve, an information which leads to excess returns being more predictable out-of-sample.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>We observe that the factors extracted from the groupensembled NN not only contribute to the ability to predict the level of the yield curve but also contribute to the slope. This suggests that the slope of the yield curve is related to the state of the economy, and our NN is able to extract the relevant information from our large set of macroeconomic variables.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>For instance, variables related to the stock and labor market are more important for the short-end of the yield curve, while variables pertaining to the categories output &amp; income and orders &amp; inventories become more relevant for the long-end of the curve. This analysis is important for two reasons. First, it suggests that inﬂation has a level-like eﬀect on bond yields, whereas variables pertaining to the labor market (order &amp; inventories) are likely to have a slope eﬀect acting mostly on short-term (long-term) bonds, while leaving long-term (short-term) bonds unaﬀected. This evidence can therefore provide guidance for theoretical models that include macro risk factors as drivers of bond risk premiums by highlighting their permanent or transient nature. Second, our analysis suggests that the use of excess bond returns averaged across maturities is unlikely to ﬂesh out the true impact of macro risk factors on bond risk premiums. 16 In all, our results show that there is information in macroeconomic and ﬁnancial variables beyond that conveyed by the yield curve, and this information improves the predictions of bond returns (Tables 1 and 2). In addition, the type of unspanned (by the yield curve) information may vary across diﬀerent bond maturities. To our knowledge, this fact is novel and provides a new angle to revisit a central question in the term structure literature, which is whether yields data contain all the relevant information to predict future bond returns.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>We ﬁnd that the magnitude of the within-group eﬀects is similar between the fully connected and group-ensembled NNs. Hence, the performance of the group-ensembled NN is driven by imposing the absence of interactions across categories while allowing for nonlinearity within an economic category.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>We estimate cross-group partial derivatives for both a fully connected network and a network with group ensembling. The results in panel A show that the absolute value of the sum of interaction derivatives in the fully connected network is orders of magnitude larger than the value obtained from a group-ensembled NN (i.e., the crossgroup interactions are indeed large in the fully connected network).</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>First, we show that nonlinear machine learning techniques, such as extreme trees and neural networks, detect predictable variations in bond returns that are statistically large; importantly, the forecasts implied by these methods translate into similarly large out-of-sample economic gains. Second, we document that employing the NN forecasts based on macroeconomic and yield information produces signiﬁcantly higher certainty equivalent return values than those implied by the NN forecasts based on yields-only variables, thus providing support for information that is unspanned by (potentially nonlinear transformations of) the yield curve and yet useful to forecast bond returns.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>From a pure machine learning perspective in the context of asset pricing, we make three contributions. First, we ﬁnd that NNs perform well even when, in the context of bond return regressions, we employ just yield-based variables (i.e., in a lowdimensional setting). This ﬁnding emphasizes that the success of NNs is largely due to their ability to capture complex nonlinearities in the data. Second, we document that nonlinearities within macroeconomic categories (output, inﬂation, labor market, etc.) are more important than interactions across categories. Finally, we document that a carefully chosen structure of the network (like group ensembling) may compensate for the depth of the network.</p>
+</blockquote>
+</li>
+<li><img src="https://i.imgur.com/DiAQhBL.jpg" alt="NN"></li>
+</ol>
+<h2 id="reviews"><a href="#reviews" class="headerlink" title="reviews"></a>reviews</h2><ol>
+<li>affine functions<br> what is affine, there are two explanation: <ol>
+<li>space transform from one coordination to other to improve analysis efficient.</li>
+<li>the basic linear function.</li>
+</ol>
+</li>
+<li>math &amp; fundamental data<br> for financial data analysis, we can not based on pure math method but should cooperate with financial fundamental data. as we know, the major intention of data analysis or quantitative finance model is extract information from material data set. it is reasonable to find useful relationship between variety variables with more data. the financial fundamental data also supply more dimension knowledges to analyze. but, it should careful the effect of information noise, which may impair robustness of model.</li>
+<li>considering features of financial time series data and sequence of those features, when we make a model by them.<br> time series data, especially financial time series data, when we try to built a model, no matter traditional linear model, machine learning model or NN model, should consider relationship between different batch or data window, because of correlation or implied casual effect in time dimension.</li>
+<li>traditional time series’ limitation: abstract-16<br> ar,ma, or arma model may be not a efficient method to describe real principle of time series data, even we used it in a long time. there is a huge difference between time series data and cross-sectional data, the direction of dimension. that is essential difference.</li>
+<li>the power of ensemble learning and developing perspective.<br> there are two major paradigm in machine learning field. the ensemble learning and NN learning. although ensemble learning looks like obscurely, it have great performance in some special problem. in my view, the reason behind that is resemble learning has more flexibility than other paradigm. it can accommodate more information patterns than others.</li>
+<li>robustness<br> do not forget evaluating robustness of your model! because of high fitting capacity of Ml model, it would occur fundamental error without assessing robustness.</li>
+</ol>
+</div></article></div></main><footer><div class="paginator"><a href="/hexo/2021/02/03/holistic-review-of-the-march-market-turmoil/" class="prev">PREV</a><a href="/hexo/2021/01/30/%E4%B8%80%E6%BB%B4%E8%9C%9C%E7%B3%96/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2023 <a href="http://williamswang23.github.io">Williams Wang</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> math for cs and ml-1 · Williams Wang's blog</title><meta name="description" content="math for cs and ml-1 - Williams Wang"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/hexo/favicon.png"><link rel="stylesheet" href="/hexo/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://williamswang23.github.io/atom.xml" title="Williams Wang's blog"><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/hexo/atom.xml" title="Williams Wang's blog" type="application/atom+xml">
+</head><body><div class="wrap"><header><a href="/hexo/" class="logo-link"><img src="/hexo/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/hexo/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/hexo/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">math for cs and ml-1</h1><div class="post-info">Feb 25, 2021</div><div class="post-content"><h1 id="math-for-cs-and-ml-1"><a href="#math-for-cs-and-ml-1" class="headerlink" title="math for cs and ml-1"></a>math for cs and ml-1</h1><a id="more"></a>
+
+<h2 id="ch2-groups-rings-and-fields"><a href="#ch2-groups-rings-and-fields" class="headerlink" title="ch2 groups, rings, and fields"></a>ch2 groups, rings, and fields</h2><p>in this chapter, the author introduces some basic concepts, which were a pool to contain different  variety of operations.</p>
+<ol>
+<li>the real numbers set has two operations: addition and multiplication.</li>
+<li>the abelian set is a*b=b*a</li>
+<li>a set meets associativity and identity  called monoid.</li>
+<li>the product of matrices is a transform from one space to an other space, geometry transformation.</li>
+<li>the math is core of cs and ml. extracting some concrete issues by math tool need high level abstracted mind and pure math knowledges. although it is difficult but has more power and more flexibility.</li>
+<li>associative 结合律</li>
+<li>there are two important property: associative and commutative</li>
+<li><blockquote>
+<p>More specifically, a binary operation on a set is an operation whose two domains and the codomain are the same set. Examples include the familiar arithmetic operations of addition, subtraction, multiplication. Other examples are readily found in different areas of mathematics, such as vector addition, matrix multiplication and conjugation in groups.<br><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Binary_operation">Binary operation - Wikipedia</a></p>
+</blockquote>
+</li>
+<li>given a set G, it has three properties: 1. a*(b*c)=(a*b)*c –associativity; 2. a*e=e*a=a –identity; 3. $a*a^{-1} =a ^{-1}*a=e$ –inverse</li>
+<li>the G + commutative( a*b=b*a) is abelian. that means a abelians set has FOUR properties.</li>
+<li><blockquote>
+<p>The set of n×n invertible matrices with real (or complex) coeﬃcients is a group under matrix multiplication, with identity element the identity matrix $I_{n}$ . This group is called the general linear group and is usually denoted by GL(n, R) (or GL(n, C)).</p>
+</blockquote>
+</li>
+<li><img src="https://i.imgur.com/VzTYaRf.jpg" alt="special_orhtogonal_gruop"></li>
+<li><blockquote>
+<p>the identity element of a monoid is unique, and since every group is a monoid, the identity element of a group is unique. Furthermore, every element in a group has a unique inverse.</p>
+</blockquote>
+</li>
+<li><img src="https://i.imgur.com/5Q1iV0H.jpg" width=50% height=50%></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Coset">Coset - Wikipedia</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Homomorphism">Homomorphism - Wikipedia</a></li>
+<li>homomorphism: <img src="https://i.imgur.com/9GkwUGZ.jpg" width=50% height=50%></li>
+<li><blockquote>
+<p>Proposition 2.8. If ϕ : G → G ′ is a homomorphism of groups, then ϕ : G → G ′ is injective i ﬀ Ker ϕ = { e } . (We also write Ker ϕ = (0).)</p>
+</blockquote>
+</li>
+<li><img src="https://i.imgur.com/5lPMejV.jpg" width=50% height=50%></li>
+<li><blockquote>
+<p>A bijective group homomorphism ϕ : G → G ′is an isomorphism.</p>
+</blockquote>
+</li>
+<li><img src="https://i.imgur.com/98ACENF.jpg" width=50% heigh=50%></li>
+<li><img src="https://i.imgur.com/Jj26Moy.jpg" width=50% heigh=50%></li>
+<li>$\langle g \rangle ={g^n|n\in \mathbb{Z}}$</li>
+<li><blockquote>
+<p>A group G is cyclic iﬀ there is some element g ∈ G such that G = 〈 g 〉 . An element g ∈ G with this property is called a generator of G.</p>
+</blockquote>
+</li>
+<li><img src="https://i.imgur.com/aLxhbAK.jpg" width=50% heigh=50%></li>
+<li><img src="https://i.imgur.com/R8vCYnK.jpg" width=50% heigh=50%></li>
+<li><img src="https://i.imgur.com/sUtMzK1.jpg" width=50% heigh=50%></li>
+<li><blockquote>
+<p>The group R[X] of polynomials in one variable with real coeﬃcients is a ring under multiplication of polynomials. It is a commutative ring.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>Let d be any positive integer. If d is not divisible by any integer of the form m 2, with m ∈ N and m ≥ 2, then we say that d is square-free.</p>
+</blockquote>
+</li>
+<li><img src="https://i.imgur.com/0m6KhWq.jpg" width=50% heigh=50%></li>
+<li><strong>a group of functions is a space. any special space, like ring, alelian set, etc. with special property, associative commutative and identity, means the functions of the space could be operated with those properties.</strong></li>
+<li><img src="https://i.imgur.com/5KRhJ4y.jpg" width=50% heigh=50%></li>
+<li><blockquote>
+<p>A ring homomorphism h: A → B is an isomorphism iﬀ there is a ring homomorphism g: B → A such that g ◦ f = id A and f ◦ g = id B . An isomorphism from a ring to itself is called an automorphism.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>The kernel of a ring homomorphism is an abelian subgroup of the additive group A, but in general it is not a subring of A, because it may not contain the multiplicative identity element 1.</p>
+</blockquote>
+</li>
+<li><img src="https://i.imgur.com/ckKwZLg.jpg" alt="field"></li>
+</ol>
+<h2 id="ch3-vector-space-bases-linear-maps"><a href="#ch3-vector-space-bases-linear-maps" class="headerlink" title="ch3 vector space, bases linear maps"></a>ch3 vector space, bases linear maps</h2><ol>
+<li>concept collection: <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/21583674">代数结构入门：群、环、域、向量空间 - 知乎</a></li>
+<li>ring: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Ring_(mathematics">Ring (mathematics) - Wikipedia</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Bijection">Bijection - Wikipedia</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Bilinear_form">Bilinear form - Wikipedia</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Injective_function">Injective function - Wikipedia</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Surjective_function">Surjective function - Wikipedia</a></li>
+<li>comparison of four mapping: <img src="https://i.imgur.com/5EuhUxl.jpg" alt="fourmapping"></li>
+<li>for a vector $\vec{x_{n*1}}$, $\lambda *\vec{x}={\lambda * x_{i,j}}$ is defined by vector operation rule. the scalar operates vector focus on the root dimension or a hyper-plane, that means a scalar is not a scalar but a variable-dimension vector. </li>
+<li>$\mathbb{R}^{3*1} \ne \mathbb{R}^{3}$, the former means a column vector, but latter means a row vectors whose elements belong real number field.</li>
+<li>$det(u,v,w)\ne0$, then (u,v,w) linear independent.</li>
+<li>inner product: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Inner_product_space">Inner product space - Wikipedia</a>, $\vec{x}*\vec{y}=\sum{x_i * y_j}$</li>
+<li>$\parallel x\parallel_{2}=(\sum{s^2_{i}})^{\frac{1}{2}}$</li>
+<li>$\parallel x \cdot y\parallel \leq \parallel x\parallel \parallel y \parallel$</li>
+<li>for vector, $\vec{A} \vec{B} \ne \vec{B} \vec{A}$</li>
+<li><blockquote>
+<p>If a square matrix A has an inverse, then we say that it is invertible or nonsingular, otherwise we say that it is singular.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>In summary, if A is a square invertible matrix, then the linear system Ax = b has the unique solution$ x= A^{-1} b$. In practice, this is not a good way to solve a linear system because computing$ A^{-1}$ is too expensive.</p>
+</blockquote>
+</li>
+<li>$\vec{Q} \vec{Q}^T = \vec{Q}^T \vec{Q} = \vec{I}_{n}$, the Q is orthogonal matrix.</li>
+<li>every mxn matrix A can be written as $\vec{A} = \vec{V} \vec{ \Sigma} \vec{U}^T $,  the V is an mxm orthogonal matrix, U is an nxn orthogonal matrix, and $\Sigma$ is an mxn matrix whose only nonzero are nonnegative diagonal entries. $\sigma_{1} \geq \sigma_{2} …$, where p=min(m,n), called the singular values of A. this process is called a singular decomposition of A.</li>
+<li><img src="https://i.imgur.com/Eef4WgN.jpg" width=50% heigh=50%></li>
+<li>given a function group with m function of (x,y), each function could be looked as a hyper-plane. m function corresponding to one hyper-plane.</li>
+<li>the indicator $\parallel \vec{A} - vec{A^{‘}} \parallel ^{2}$ could be used to measure how closed of two matrix, and the latter matrix $A^{‘}$ is approximate of A. through this process, we could get a low dimension matrix and save computing cost.</li>
+<li><blockquote>
+<p><strong>However, keep in mind that vector spaces are not just algebraic objects; they are also geometric objects.</strong></p>
+</blockquote>
+</li>
+<li><img src="https://i.imgur.com/Fq6wCn0.jpg" alt="vector space"></li>
+<li>the ring C(a,b) of continuous functions $f:(a,b) \rightarrow \mathbb{R} $ is a vector space over $\mathbb{R}$, with the scalar multiplication $\lambda f$ of a function $f:(a,b) \rightarrow \mathbb{R} $ by a scalar $\lambda \in \mathbb{R} $ given by: $(\lambda f)(x)=\lambda f(x), for all x \in (a,b)$.</li>
+<li><blockquote>
+<p>if + is associative and commutative, it seems intuitively clear that a sum of the form ∑ i ∈ I a i does not depend on the order of the operations used to compute it.</p>
+</blockquote>
+</li>
+<li><img src="https://i.imgur.com/75qO7cE.jpg" width=50% heigh=50%></li>
+<li><img src="https://i.imgur.com/ahPCPIs.jpg" width=50% heigh=50%>
+this definition reveals a important property of vector space. the space property like commutative or associative.</li>
+<li>the algebra gives a revolutionary view about basic math operations. it is not just repeat of old theory, although they have same conclusion, but new theory has  a more reasonable perspective.</li>
+<li><blockquote>
+<p>the deﬁnition of linear independence implies that a nontrivial linearly independent family is actually a set.</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>The intersection of any family (even inﬁnite) of subspaces of a vector space E is a subspace.</p>
+</blockquote>
+</li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Infinite-dimensional_vector_function">Infinite-dimensional vector function - Wikipedia</a></li>
+<li><blockquote>
+<p>Given any vector space E, if S is any nonempty subset of E, then the smallest subspace 〈 S 〉 (or Span(S)) of E containing S is the set of all (ﬁnite) linear combinations of elements from S.</p>
+</blockquote>
+</li>
+<li><img src="https://i.imgur.com/UYOYgQV.jpg" width=50% heigh=50%></li>
+<li><img src="https://i.imgur.com/3ucWqCS.jpg" width=50% heigh=50%></li>
+<li>the vector of a vector space has two relationship, either linear dependent or linear independent.</li>
+<li>in a vector space, linear independents vector family can be transform any vector in this space, if it is base of the vector space. any vector in this space have superficial difference but same base, that means they can transform to same base, homo-vectors.</li>
+<li><blockquote>
+<p>When a vector space E is not ﬁnitely generated, we say that E is of inﬁnite dimension. The dimension of a ﬁnitely generated vector space E is the common dimension n of all of its bases and is denoted by dim(E).</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>If E is a vector space of dimension n ≥ 1, for any subspace U of E, if dim(U) = 1, then U is called a line; if dim(U) = 2, then U is called a plane; if dim(U) = n−1, then U is called a hyperplane. If dim(U) = k, then U is sometimes called a k-plane.</p>
+</blockquote>
+</li>
+<li>用base 构成的子空间/子vector，构成的标量具有unique： 1. 该子space和子vector是base通过线性方法构成的。2. 应用该结论需要2个前提：找到一个space的base，找到对应的scalar。那么线性方程，如果能保证x是base，那么线性方程组就在这样的一个原理。</li>
+<li><img src="https://i.imgur.com/qdhrGhe.jpg" alt="unique-linearly"></li>
+<li><img src="https://i.imgur.com/rW3o8lE.jpg" alt="matrix"></li>
+<li> “$index \rightarrow index\ space \rightarrow matrix$ “– how to define a matrix!</li>
+<li><blockquote>
+<p>An invertible matrix is also called a nonsingular matrix, and a matrix that is not invertible is called a singular matrix.</p>
+</blockquote>
+</li>
+<li>from singular and nonsingular matrix, we can find the matrix space is not closed, like sponge.</li>
+<li><img src="https://i.imgur.com/GYZHMbe.jpg" alt="discompose"></li>
+<li><blockquote>
+<p> but we can consider structures over a commutative ring A satisfying all the axioms of Deﬁnition 3.1. Such structures are called modules. The theory of modules is (much) more complicated than that of vector spaces. For example, modules do not always have a basis, and other properties holding for vector spaces usually fail for modules. When a module has a basis, it is called a free module. </p>
+</blockquote>
+</li>
+<li><blockquote>
+<p><strong>Keep in mind that linear maps, which are transformations of space, are usually far more important than the spaces themselves.</strong></p>
+</blockquote>
+</li>
+<li><img src="https://i.imgur.com/YMleUyX.jpg" alt="mapping"></li>
+<li>Kernel: a benchmark because 0 is a relative point which related with many features of space. The right side and left side have different rules in some space.</li>
+<li><img src="https://i.imgur.com/dZDJJ2q.jpg" alt="map-isomorphism"></li>
+<li><img src="https://i.imgur.com/d0UckGq.jpg" alt="vector-map"></li>
+<li><blockquote>
+<p>The set of all linear maps between two vector spaces E and F is denoted by Hom(E, F)</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>When E = F, a linear map f : E → E is also called an endomorphism. The space Hom(E, E) is also denoted by End(E).</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>Given a vector space E, the vector space Hom(E, K) of linear maps from E to the ﬁeld K is called the dual space (or dual) of E. The space Hom(E, K) is also denoted by E ∗ , and the linear maps in E ∗ are called the linear forms, or covectors. The dual space E ∗∗ of the space E ∗ is called the bidual of E.</p>
+</blockquote>
+</li>
+<li><img src="https://i.imgur.com/IGHXdK2.jpg" alt="property-heredity"></li>
+<li><strong>many properties of space is hereditary</strong></li>
+</ol>
+</div></article></div></main><footer><div class="paginator"><a href="/hexo/2021/02/27/%E4%BA%A7%E5%93%81%EF%BC%8C%E7%BB%8F%E5%8E%86%E5%92%8C%E7%AE%B4%E8%A8%80/" class="prev">PREV</a><a href="/hexo/2021/02/25/RF-under-fog/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2023 <a href="http://williamswang23.github.io">Williams Wang</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>

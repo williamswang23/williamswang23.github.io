@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> market microstructure · Williams Wang's blog</title><meta name="description" content="market microstructure - Williams Wang"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/hexo/favicon.png"><link rel="stylesheet" href="/hexo/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://williamswang23.github.io/atom.xml" title="Williams Wang's blog"><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/hexo/atom.xml" title="Williams Wang's blog" type="application/atom+xml">
+</head><body><div class="wrap"><header><a href="/hexo/" class="logo-link"><img src="/hexo/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/hexo/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/hexo/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">market microstructure</h1><div class="post-info">Aug 11, 2021</div><div class="post-content"><h1 id="market-microstructure-algorithmic-trading-and-strategies"><a href="#market-microstructure-algorithmic-trading-and-strategies" class="headerlink" title="market microstructure, algorithmic trading, and strategies"></a>market microstructure, algorithmic trading, and strategies</h1><p>The fundamental logic of the market microstructure is the agents. </p>
+<a id="more"></a>
+
+<h2 id="SECTOR-1"><a href="#SECTOR-1" class="headerlink" title="SECTOR 1"></a>SECTOR 1</h2><p>A completed knowledge framework should include those points below:</p>
+<ol>
+<li>Trading fundamentals</li>
+<li>Time series data analysis</li>
+<li>Advanced mathematical technology</li>
+<li>Market data analysis:<ol>
+<li>Statistical trading strategies</li>
+<li>Dynamic portfolio management</li>
+<li>Market sentiment analysis</li>
+</ol>
+</li>
+<li>Execution module<ol>
+<li>Modeling Data</li>
+<li>Market choosing</li>
+<li>Trading signal send out</li>
+</ol>
+</li>
+<li>Technology &amp; market rules</li>
+</ol>
+<h2 id="SECTOR-Trading-fundamentals"><a href="#SECTOR-Trading-fundamentals" class="headerlink" title="SECTOR-Trading fundamentals"></a>SECTOR-Trading fundamentals</h2><p>The progress of algorithmic trading is built on the market system that the identical assets can trade  in different exchange with a variety of trading tools, such as electronic trading, advanced communication network, and order forms. </p>
+<p>The first step of learning in this field is understanding some basic perceptions. The orders match in a market with some special rules. The order forms include limit order and market order.  The matching rules include auction, and continuous trading. There is a key point that the market and order are operated in a dynamic process. The traders, whatever human or artificial programs, are capture trading opportunities by monitoring the power change of bid and ask. It should also understand that some limit orders may be misleading. The market will produce many trading data including settlement data, submitting but canceling order data, and other information, such as news, rumors, etc. </p>
+<p>The most important and time-taking step is data cleaning in financial data analysis. We should adjust the time stamp to a same standard while considering trading time overlap. The holidays are also a crucial point, because the discrepancy of holiday will result in non-aligned data misleading our models. </p>
+<p>The market data own too much information, therefore we should collect the data as detailed as we can. The level III data is the best one. </p>
+<p>We should focus on the intra-day data and critical fundamental data, such as intra-day price change range, financial data disclosure, and credit rating. We should also watch the market parameters, such as market liquidity indicators. We will be constrained in executing our strategies if the market liquidity is eliminated. </p>
+<h2 id="SECTION-Time-series"><a href="#SECTION-Time-series" class="headerlink" title="SECTION-Time series"></a>SECTION-Time series</h2><p>The only thing that should be emphasized is the multivariate time series analysis is the most suitable tool for high-frequency data. </p>
+<p>The asset price, asset return, and volatility data have the same weight in this part. </p>
+<h2 id="SECTION-Advanced-technologies"><a href="#SECTION-Advanced-technologies" class="headerlink" title="SECTION- Advanced technologies"></a>SECTION- Advanced technologies</h2><p>The Markov process as a better tool gives us more inspiration. There are some explicit relationship between volatility, volume, short term price trend, and the time between trades. </p>
+<p>Many models are based on a homogeneous principle that expected value is composed with explained trends that are extracted from long term historical data and an adjustment that are extracted from some near-happened events. </p>
+<p>It is noticed that some advanced artificial intelligence technology are used in algorithmic trading recently, such as machine learning, neural network, and reinforcement learning. </p>
+<h2 id="SECTOR-Market-data-analysis"><a href="#SECTOR-Market-data-analysis" class="headerlink" title="SECTOR-Market data analysis"></a>SECTOR-Market data analysis</h2><p>It is essential those classical financial frameworks, theories, and indicators, if you want to own a great trading model.<br>For example: </p>
+<ol>
+<li>portfolio optimal model</li>
+<li>dynamic portfolio management</li>
+<li>market sentiment analysis</li>
+</ol>
+<h3 id="market-sentiment-analysis"><a href="#market-sentiment-analysis" class="headerlink" title="market sentiment analysis"></a>market sentiment analysis</h3><p>The market participants will under-reacting or over-reacting for shocks. The market sentiment analysis is very important for high frequency or short term trading. Fortunately, with the development of AI technologies, this field has an increasing number of tools. However, some traditional theories still have their merits. </p>
+<h2 id="SECTOR-Execution-module"><a href="#SECTOR-Execution-module" class="headerlink" title="SECTOR-Execution module"></a>SECTOR-Execution module</h2><p>Some conceptions:<br>ADV, VWAP, IS, Quote price, bid-ask spread, the intra-day volatility, etc.<br>There are two key points in high frequency, the time dimension, and volume dimension. The features of market data based on those two dimensions can supply much effective information to capture trading signals. Everything is dynamic in a market. </p>
+<p>In this section, those experts invent many models. Nevertheless, the assumptions of those models are too simple to adapt to the real complex market.</p>
+<p>The Poisson distribution and exponential distribution are applied in the conditions of this section widely. </p>
+<p>The reinforcement learning has deep potential in this field, because capturing a great trading signal required forecasting market trends and assessing trading outcomes. Can you remember anything like this pattern, yes, the alpha-Go. I prepare to write an essay about deep reinforcement learning in future, not too long. </p>
+<h2 id="SECTOR-The-market-architecture-and-trading-infrastructure"><a href="#SECTOR-The-market-architecture-and-trading-infrastructure" class="headerlink" title="SECTOR-The market architecture and trading infrastructure."></a>SECTOR-The market architecture and trading infrastructure.</h2><p>Order management system: Ez Castle, Portware, FlexTrade<br>The vendors: Reuters,Redline Trading Solutions, Exegy.<br>The basic fundamental principles of market matching system.</p>
+<h2 id="SECTOR-DISCUSSION"><a href="#SECTOR-DISCUSSION" class="headerlink" title="SECTOR DISCUSSION"></a>SECTOR DISCUSSION</h2><p>There are two branches about those agents building the dynamic order books process, one is simple agents with ensemble learning, the other is two agents with complex architecture. Each of them has individual specific advantages in different stages of model.</p>
+<p>It should be notable that the more smooth data means more information loss. None can determine the significant level of those lost information before demonstrating analysis target. Therefore, we should keep enough prudence for artificial data smoothing. </p>
+</div></article></div></main><footer><div class="paginator"><a href="/hexo/2021/08/28/homomorphism-finance/" class="prev">PREV</a><a href="/hexo/2021/08/05/society-culture-and-influence/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2023 <a href="http://williamswang23.github.io">Williams Wang</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
